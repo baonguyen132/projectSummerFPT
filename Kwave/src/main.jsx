@@ -1,8 +1,12 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import RouterCustome from './router'
+import { HelmetProvider } from 'react-helmet-async'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <h1>ss</h1>
+    <HelmetProvider>
+      <RouterCustome />
+    </HelmetProvider>
   </StrictMode>,
 )

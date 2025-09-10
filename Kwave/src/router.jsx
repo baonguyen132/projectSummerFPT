@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AdminPage from "./pages/Admin/admin";
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,24 @@ const router = createBrowserRouter([
     path: "/contact",
     element: <h1>Contact Page</h1>,
   },
-
+  {
+    path: "/admin",
+    element: <AdminPage />,
+    children: [
+        {
+            index: true,
+            element: <h1>Dashboard Page</h1>,
+        },
+        {
+            path: "users",
+            element: <h1>Users Page</h1>,
+        },
+        {
+            path: "settings",
+            element: <h1>Settings Page</h1>,
+        }
+    ]
+  },
   {
     path: "*",
     element: (

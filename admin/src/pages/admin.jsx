@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
 import React from "react";
 import styles from "./admin.module.scss";
-import Layout from "../../layout/layout";
-import Navigation from "../../layout/Navigation/navigation";
-import Sidebar from "../../components/Admin/Sidebar/sidebar";
+import Layout from "../layout/layout";
+import Navigation from "../layout/Navigation/navigation";
+import Sidebar from "../components/Sidebar/sidebar";
 
 function AdminPage() {
   return (

@@ -1,0 +1,164 @@
+.semiCircleChart {
+    background: linear-gradient(100deg, #0C6FFF 40%, #1b4ec5 80%, #0832b2 100%);
+    border-radius: 16px;
+    padding: 24px;
+    color: white;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    }
+}
+
+.header {
+    margin-bottom: 20px;
+    z-index: 2;
+    position: relative;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+}
+
+.subtitle {
+    font-size: 14px;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.chartContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    position: relative;
+}
+
+.svgContainer {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.progressPath {
+    /* Bỏ animation */
+}
+
+.centerContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+}
+
+.smileyIcon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    i {
+        font-size: 20px;
+        color: white;
+    }
+}
+
+.percentageDisplay {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.percentage {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    display: inline-block;
+}
+
+.baseText {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+}
+
+.legendDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+    .semiCircleChart {
+        height: 350px;
+        padding: 16px;
+    }
+    
+    .svgContainer {
+        margin-bottom: 16px;
+    }
+    
+    .percentage {
+        font-size: 28px;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .semiCircleChart {
+        height: 300px;
+        padding: 12px;
+    }
+    
+    .svgContainer svg {
+        width: 150px;
+        height: 90px;
+    }
+    
+    .percentage {
+        font-size: 24px;
+        padding: 4px 8px;
+    }
+    
+    .smileyIcon {
+        width: 30px;
+        height: 30px;
+        
+        i {
+            font-size: 16px;
+        }
+    }
+}

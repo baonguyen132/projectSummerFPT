@@ -1,0 +1,165 @@
+.lineChart {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+}
+
+.header {
+    margin-bottom: 16px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0 0 2px 0;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #718096;
+    margin: 0;
+}
+
+.chartContainer {
+    flex: 1;
+    display: flex;
+    gap: 12px;
+}
+
+.yAxis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 35px;
+    padding-right: 6px;
+    font-size: 10px;
+    color: #718096;
+}
+
+.chartArea {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.chartArea svg {
+    flex: 1;
+    margin-bottom: 6px;
+}
+
+.dataPoint {
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        r: 6;
+        filter: drop-shadow(0 2px 4px rgba(12, 111, 255, 0.4));
+    }
+}
+
+.scoreLabel {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.dataPoint:hover + .scoreLabel {
+    opacity: 1;
+}
+
+.xAxis {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4px;
+}
+
+.xLabel {
+    font-size: 10px;
+    color: #718096;
+    font-weight: 500;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.statItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 4px 8px;
+    background: #f7fafc;
+    border-radius: 6px;
+    min-width: 60px;
+}
+
+.statLabel {
+    font-size: 10px;
+    color: #718096;
+}
+
+.statValue {
+    font-size: 12px;
+    font-weight: 600;
+    color: #0C6FFF;
+}
+
+@media (max-width: 768px) {
+    .lineChart {
+        height: 250px;
+        padding: 12px;
+    }
+    
+    .stats {
+        margin-top: 8px;
+        padding-top: 8px;
+        gap: 4px;
+    }
+    
+    .statItem {
+        min-width: 50px;
+        padding: 3px 6px;
+    }
+    
+    .statValue {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .lineChart {
+        height: 220px;
+        padding: 10px;
+    }
+    
+    .yAxis {
+        width: 25px;
+        font-size: 9px;
+    }
+    
+    .xLabel {
+        font-size: 9px;
+    }
+    
+    .dataPoint {
+        r: 3;
+    }
+}

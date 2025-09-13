@@ -1,6 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AdminPage from "./pages/Admin/admin";
-
 const router = createBrowserRouter([
   {
     path: "/",

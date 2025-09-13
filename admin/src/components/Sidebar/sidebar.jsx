@@ -43,7 +43,7 @@ const getBreadcrumbs = () => {
       {/* Breadcrumb Navigation - Left Side */}
       <div className={styles.breadcrumbSection}>
         <nav className={styles.breadcrumb}>
-          <Link to="/admin" className={styles.breadcrumbItem}>
+          <Link to="/" className={styles.breadcrumbItem}>
             <i className="bx bx-home"></i>
             Dashboard
           </Link>

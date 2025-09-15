@@ -1,10 +1,24 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AdminPage from "./pages/Admin/admin";
+import ButtonDemo from "./pages/ButtonDemo";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <h1>Home Page</h1>,
+  },
+   {
+    path: "/buttons",
+    element: <ButtonDemo />,
+    children:[
+      {
+        path: "page1",
+        element: <h1>Home Page1</h1>,
+      },
+      {
+        path: "page2",
+        element: <h1>Home Page2</h1>,
+      },
+    ]
   },
   {
     path: "*",

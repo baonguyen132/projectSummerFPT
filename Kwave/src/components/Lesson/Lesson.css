@@ -1,0 +1,11 @@
+.lesson {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  align-items: center;
+}
+.lesson .btn[class*="nd-"] {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}

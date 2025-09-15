@@ -44,6 +44,8 @@
   background-color: white;
   border: 2px solid #51AE77;
   color: #51AE77;
+  box-shadow: 2px 2px #90909041;
+
 }
 .button.outlinegreen:hover {
   background-color: #b3e4cd;
@@ -103,22 +105,14 @@
 .button.grey {
   background-color: #9ca3af;
   color: #4d4d4d;
-  font-weight: bold;
+  box-shadow: 2px 2px #90909041;
   /* cursor: not-allowed; */
 }
 
-/* gray / Disabled – xám (Đề 5) */
-.button.gray {
-  background-color: #9ca3af;
-  color: #ffffff;
-  font-weight: bold;
-  /* cursor: not-allowed; */
-}
 /* white / Disabled – xám (Đề 5) */
 .button.white {
   background-color: #ffffff;
   color: #000000;
-  font-weight: bold;
   box-shadow: 2px 2px #11111148;
   border: 2px solid #b5b5b548;
 
@@ -149,6 +143,35 @@
   background-color: #d9363e;
 }
 
+/* ===== Button LỰA CHỌN HIỆN TẠI - YÊU THÍCH ===== */
+.button.segmented {
+  display: inline-flex;
+  border: 2px solid #51AE77;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 0; /* bỏ padding chung */
+}
+
+.button.segmented .segmented-item {
+  border: none;
+  background: white;
+  color: #51AE77;
+  font-weight: 500;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+  font-size: 18px;
+}
+
+.button.segmented .segmented-item.active {
+  background: #2ecc71;
+  color: white;
+}
+
+.button.segmented .segmented-item:not(.active):hover {
+  background: #e8f9f0;
+}
 
 /* ===== Card dọc (ảnh trên – chữ dưới) ===== */
 .button.card .card-vertical {
@@ -175,7 +198,7 @@
   font-weight: 500;
 }
 .button.card .card-vertical:hover {
-  background-color: #f0fdf4;
+  background-color: #d1f6dc;
 }
 
 /* ===== Card ngang (ảnh trái – chữ phải - nền trắng) ===== */

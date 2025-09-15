@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./css/Button.css";
 
 const Button = ({
   type = "fullgreen",      
-  size = "medium",       // small, medium, large
+  size = "medium",
   children,
   onClick,
   disabled = false,
-  icon = null,           // string (url) hoặc JSX
-  layout = "vertical",   // vertical | horizontal (chỉ áp dụng cho card)
+  icon = null,
+  layout = "vertical",
   className = "",
+  options = [],          // cho segmented
+  defaultValue,
+  onChange,
   ...props
 }) => {
-  // Nếu icon là string → coi như ảnh
+  const [segmentedValue, setSegmentedValue] = useState(defaultValue || options[0]);
+
   const isImageUrl = typeof icon === "string" && icon.length > 0;
   const iconElement = isImageUrl ? (
     <img src={icon} alt="" className="button-img" />
@@ -21,6 +25,25 @@ const Button = ({
   );
 
   const classes = `button ${type} ${size} ${disabled ? "disabled" : ""} ${className}`.trim();
+
+  if (type === "segmented") {
+    return (
+      <div className={classes}>
+        {options.map((option) => (
+          <button
+            key={option}
+            className={`segmented-item ${segmentedValue === option ? "active" : ""}`}
+            onClick={() => {
+              setSegmentedValue(option);
+              onChange && onChange(option);
+            }}
+          >
+            {option}
+          </button>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <button

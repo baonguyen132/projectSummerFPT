@@ -4,6 +4,8 @@ import Header from "../components/Header/Header";
 import RoadMap from "../components/RoadMap/RoadMap";
 import Lesson from "../components/Lesson/Lesson";
 import Grammar from "../components/Grammar/Grammar";
+import ExamType from "../components/ExamType/ExamType";
+import ExamList from "../components/ExamList/ExamList";
 import { Outlet } from "react-router-dom";
 
 function ButtonDemo() {
@@ -15,9 +17,15 @@ function ButtonDemo() {
       <Button type="orange" size="large">Đăng ký</Button>
       <Button type="darkgreen" size="large">Đăng ký</Button>
       <Button type="grey" size="large">Đăng ký</Button>
-      <Button type="gray" size="large">Đăng ký</Button>
       <Button type="white" size="large">Đăng ký</Button>
-      
+      <Button
+        type="segmented"
+        options={["Hiện tại", "Yêu thích"]}
+        defaultValue="Hiện tại"
+        onChange={(val) => console.log("Chọn:", val)}
+        size="large"
+      />
+
       <Button
         type="card"
         layout="vertical"
@@ -46,6 +54,8 @@ function ButtonDemo() {
       <RoadMap/>
       <Lesson/>
       <Grammar/>
+      <ExamType/>
+      <ExamList/>
     </div>
   );
 }

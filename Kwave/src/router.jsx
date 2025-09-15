@@ -1,10 +1,15 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ButtonDemo from "./pages/ButtonDemo";
+import VocabularyPage from "./components/Vocabulary/VocabularyPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <h1>Home Page</h1>,
+  },
+  {
+    path: "/vocab",
+    element: <VocabularyPage>Home Page</VocabularyPage>,
   },
    {
     path: "/buttons",

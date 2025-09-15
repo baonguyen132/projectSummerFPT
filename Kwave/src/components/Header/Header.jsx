@@ -10,7 +10,7 @@ const Header = () => {
     <header className="header">
       {/* Logo */}
       <div className="logo-section">
-        <i class="bxr bx-dashboard" />
+        <i className="bxr bx-dashboard" />
         <span className="logo-text">K-Wave</span>
       </div>
 

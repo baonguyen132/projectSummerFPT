@@ -1,0 +1,32 @@
+@import "tailwindcss"; 
+
+
+:root {
+    /* color */
+    --primary-color: #1E8E3E;
+
+    --text-grey-color: #6B7280;
+    --text-green-color: #10B981;
+
+
+    /* font size */
+    --font-size-sm: 12px;
+    --font-size-md: 14px;
+    --font-size-lg: 16px;
+    --font-size-xl: 18px;
+    --font-size-2xl: 20px;
+    --font-size-3xl: 24px;
+    --font-size-4xl: 28px;
+
+    /* font weight */
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    
+}
+
+.tab-selected {
+  border-bottom-color: var(--primary-color) !important;
+  color: var(--primary-color) !important;
+}

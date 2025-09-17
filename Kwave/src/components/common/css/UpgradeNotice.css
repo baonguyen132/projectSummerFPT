@@ -1,0 +1,38 @@
+.upgrade-container{
+    border: 3px solid #FF6600;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-items: center;
+    font-size: 10px;
+    cursor: pointer;
+    width: 400px;
+}
+.upgrade-left{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.yellow>b{
+    color: #e3be06;
+    box-shadow: 0px 2px #90909041;
+}
+.gray{
+    color: #5d5b5a;
+}
+.red{
+    color: #FF0000;
+}
+.upgrade-right{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.upgrade-right>label{
+    color: #FF0000;
+    font-weight: bold;
+    font-size: 30px;
+}

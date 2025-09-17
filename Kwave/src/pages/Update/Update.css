@@ -1,0 +1,24 @@
+.update-body{
+  margin-top: 70px;
+}
+.update-container{
+  background: url("../../asset/image/update.jpg"); /* đường dẫn ảnh */
+  background-size: cover;   /* ảnh phủ kín */
+  background-position: center; /* căn giữa */
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  height: 190vh;
+}
+.flag-container>img{
+  width: 200px;
+  height: 150px;
+}
+.update-note{
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.61);
+  text-align: left;
+}

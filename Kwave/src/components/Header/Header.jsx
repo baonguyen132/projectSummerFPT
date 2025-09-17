@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../Header/Header.css";
 import Button from "../common/Button";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [openExam, setOpenExam] = useState(false);
@@ -16,8 +17,8 @@ const Header = () => {
 
       {/* Menu */}
       <nav className="menu-section">
-        <Button type="textgreen" size="medium">Trang chủ</Button>
-        <Button type="textgreen" size="medium">Lộ trình</Button>
+        <Button type="textgreen" size="medium"><NavLink to="/home">Trang chủ</NavLink></Button>
+        <Button type="textgreen" size="medium"><NavLink to="/roadmap">Lộ trình</NavLink></Button>
 
         {/* Đề thi có dropdown */}
         <div className="dropdown">
@@ -37,7 +38,7 @@ const Header = () => {
         </div>
 
         <Button type="textgreen" size="medium">Tin tức</Button>
-        <Button type="textgreen" size="medium">Văn hóa</Button>
+        <Button type="textgreen" size="medium"><NavLink to="/culture">Văn hóa</NavLink></Button>
 
         {/* User icon có dropdown */}
         <div className="dropdown">
@@ -50,7 +51,7 @@ const Header = () => {
           {openUser && (
             <div className="dropdown-menu">
               <Button type="textgreen" size="medium">Hồ sơ</Button>
-              <Button type="textgreen" size="medium">Nâng cấp</Button>
+              <Button type="textgreen" size="medium"><NavLink to="/update">Nâng cấp</NavLink></Button>
               <Button type="textgreen" size="medium">Thoát</Button>
             </div>
           )}

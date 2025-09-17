@@ -1,16 +1,55 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ButtonDemo from "./pages/ButtonDemo";
 import VocabularyPage from "./components/Vocabulary/VocabularyPage";
+import PriceModal from "./components/Price/PriceModal";
+import Culture from "./pages/Culture/Culture";
+import Update from "./pages/Update/Update";
+import Home from "./pages/Home/Home";
+import Roadmap from "./pages/Roadmap/Roadmap";
+import MainLayout from "./layouts/MainLayout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <h1>Home Page</h1>,
+    element: <MainLayout/>,
+    children: [
+      {
+        path: "/",
+        element: <Home/>,
+        index: true   
+      },
+      {
+      path: "/home",
+      element: <Home/>,
+      index: true   
+
+    },
+      {
+        path: "/roadmap",
+        element: <>
+          <Roadmap />
+        </>
+      },
+      {
+        path: "/culture",
+        element: <Culture/>,
+      },
+      {
+        path: "/update",
+        element: <Update/>,
+      },
+    ]
   },
+  
   {
-    path: "/vocab",
-    element: <VocabularyPage>Home Page</VocabularyPage>,
+    path: "/culture",
+    element: <Culture></Culture>,
   },
+    {
+    path: "/price",
+    element: <PriceModal></PriceModal>,
+  },
+
    {
     path: "/buttons",
     element: <ButtonDemo />,

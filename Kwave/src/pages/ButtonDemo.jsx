@@ -6,6 +6,12 @@ import Lesson from "../components/Lesson/Lesson";
 import Grammar from "../components/Grammar/Grammar";
 import ExamType from "../components/ExamType/ExamType";
 import ExamList from "../components/ExamList/ExamList";
+import ImageNavigator from "../components/common/ImageNavigator";
+import Question from "../components/common/Question";
+import QuestionNumber from "../components/QuestionNumber/QuestionNumber";
+import ComingSoon from "../components/common/ComingSoon";
+
+
 import { Outlet } from "react-router-dom";
 
 function ButtonDemo() {
@@ -56,6 +62,15 @@ function ButtonDemo() {
       <Grammar/>
       <ExamType/>
       <ExamList/>
+      <ImageNavigator/>
+      <Question
+        question="Phương tiện nào đi trên đường bộ?"
+        answers={["버스", "배", "택시", "비행기"]}
+        correctIndex={0}
+        explanation="버스 (xe buýt) là phương tiện di chuyển trên đường bộ."
+      />
+      <QuestionNumber/>
+      <ComingSoon/>
     </div>
   );
 }

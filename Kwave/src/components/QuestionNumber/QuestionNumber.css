@@ -1,0 +1,15 @@
+.question-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 10 số 1 hàng */
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.question-grid .button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;  /* nút tròn */
+  padding: 0;          /* bỏ padding chữ */
+  font-size: 14px;
+  font-weight: bold;
+}

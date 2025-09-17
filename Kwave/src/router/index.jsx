@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom'
-import App from './App'
+import App from '../App'
 
-import NotFoundPage from './pages/NotFoundPage'
-import MainLayout from './layout/MainLayout'
-import LearnerHomePage from './pages/learner/LearnerHomePage'
-import LearnerNews from './pages/learner/LearnerNews'
-import LearnerNewsDetails from './pages/learner/LearnerNewsDetails'
+import NotFoundPage from '../pages/NotFoundPage'
+import MainLayout from '../layouts/learner/MainLayout'
+import LearnerHomePage from '../pages/learner/LearnerHomePage'
+import LearnerNews from '../pages/learner/LearnerNews'
+import LearnerNewsDetails from '../pages/learner/LearnerNewsDetails'
 
 
 

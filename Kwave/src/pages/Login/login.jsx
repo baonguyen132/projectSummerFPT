@@ -48,9 +48,9 @@ function Login() {
         </div>
         
         <div className={styles.loginForm}>
-          
-          <InputGroup formData={formData} handleChange={handleChange} name="username" icon="bx bx-user" />
-          <InputGroup formData={formData} handleChange={handleChange} name="password" icon="bx bx-lock" type="password" />
+
+          <InputGroup formData={formData} handleChange={handleChange} name="username" icon="bx bx-user" label="Username" />
+          <InputGroup formData={formData} handleChange={handleChange} name="password" icon="bx bx-lock" type="password" label="Password" />
           <ButtonDefault onClick={handleSubmit} disabled={isLoading}>
             {isLoading ? (
               <>

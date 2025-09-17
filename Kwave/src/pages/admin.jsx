@@ -7,7 +7,7 @@ import Sidebar from "../components/Sidebar/sidebar";
 
 function AdminPage() {
   return (
-    <Layout title={"Admin Page"}>
+    <Layout title={"Dashboard"}>
       <div className={styles.adminContainer}>
         <div className={styles.navbar}>
             <Navigation />

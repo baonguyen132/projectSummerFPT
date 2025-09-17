@@ -1,19 +1,24 @@
 import React from "react";
 import styles from "./FloatingButton.module.scss";
 
-function FloatingButton({ handleClick }) { // Sửa destructuring props
+function FloatingButton({ handleClick, title, icon = "bx bx-plus" }) {
+  
   return (
-    <div className={styles.enhancedFloatingCreate}>
-      <div className={styles.floatingTooltip}>Tạo nhân viên mới</div>
-      <button 
-        className={styles.floatingCreateMain} 
-        onClick={handleClick} // Sửa onClick handler
-        type="button"
-        aria-label="Tạo nhân viên mới"
-      >
-        <i className="bx bx-plus"></i>
-      </button>
-    </div>
+    <>
+      <div className={styles.enhancedFloatingCreate}>
+        <div className={styles.floatingTooltip}>{title}</div>
+        <button 
+          className={styles.floatingCreateMain} 
+          onClick={handleClick}
+          type="button"
+          aria-label={title || "Tạo mới"}
+        >
+          <i className={icon}></i>
+        </button>
+      </div>
+
+      
+    </>
   );
 }
 

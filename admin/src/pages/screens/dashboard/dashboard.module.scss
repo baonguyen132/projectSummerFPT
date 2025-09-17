@@ -3,27 +3,31 @@
     gap: 10px;
     grid-template-columns: repeat(4, 1fr);
     margin-bottom: 20px;
-    
+
 }
+
 .chartsContainer {
-        display: grid;
-        gap: 20px;
-        grid-template-columns: repeat(3, 1fr);
-        margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.bottomContainer {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    .lineChartWrapper {
+        flex: 2
     }
 
-    .bottomContainer {
-        display: grid;
-        gap: 20px;
-        .lineChartWrapper {
-            grid-column-start: 1;
-            grid-column-end: 8;
-        }
-        .calendarWrapper {
-            grid-column-start: 8;
-            grid-column-end: 12;}
-
+    .calendarWrapper {
+        flex: 1
     }
+
+}
+
 @media screen and (max-width: 1000px) {
     .contentStatistical {
         grid-template-columns: repeat(2, 1fr);

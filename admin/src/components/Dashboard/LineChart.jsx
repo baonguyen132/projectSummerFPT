@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './LineChart.module.scss';
 
 function LineChart({ data, title, subtitle }) {
+    const chartRef = useRef(null);
+    const [dimensions, setDimensions] = useState({ width: 300, height: 150 });
+
+    // Responsive chart dimensions
+    useEffect(() => {
+        const updateDimensions = () => {
+            if (chartRef.current) {
+                const containerWidth = chartRef.current.offsetWidth;
+                const width = Math.max(containerWidth - 20, 250); // Minimum 250px
+                const height = Math.min(width * 0.5, 200); // Max height 200px
+                setDimensions({ width, height });
+            }
+        };
+
+        updateDimensions();
+        window.addEventListener('resize', updateDimensions);
+        return () => window.removeEventListener('resize', updateDimensions);
+    }, []);
+
     const maxValue = Math.max(...data.map(item => item.score));
     const minValue = Math.min(...data.map(item => item.score));
     const range = maxValue - minValue;
@@ -10,11 +29,11 @@ function LineChart({ data, title, subtitle }) {
     const chartMin = Math.max(0, minValue - padding);
     const chartRange = chartMax - chartMin;
 
-    // Tạo points cho đường line
+    // Tạo points cho đường line với dimensions responsive
     const createPoints = () => {
         return data.map((item, index) => {
-            const x = (index / (data.length - 1)) * 300; // SVG width
-            const y = 150 - ((item.score - chartMin) / chartRange) * 150; // SVG height
+            const x = (index / (data.length - 1)) * dimensions.width;
+            const y = dimensions.height - ((item.score - chartMin) / chartRange) * dimensions.height;
             return { x, y, score: item.score, month: item.month };
         });
     };
@@ -27,7 +46,7 @@ function LineChart({ data, title, subtitle }) {
     ).join(' ');
 
     // Tạo area path
-    const areaPath = `${pathData} L ${points[points.length - 1].x} 150 L ${points[0].x} 150 Z`;
+    const areaPath = `${pathData} L ${points[points.length - 1].x} ${dimensions.height} L ${points[0].x} ${dimensions.height} Z`;
 
     return (
         <div className={styles.lineChart}>
@@ -45,12 +64,27 @@ function LineChart({ data, title, subtitle }) {
                     <span>{chartMin.toFixed(1)}</span>
                 </div>
 
-                <div className={styles.chartArea}>
-                    <svg width="300" height="150" viewBox="0 0 300 150">
+                <div className={styles.chartArea} ref={chartRef}>
+                    <svg 
+                        width="100%" 
+                        height={dimensions.height} 
+                        viewBox={`0 0 ${dimensions.width} ${dimensions.height}`}
+                        preserveAspectRatio="none"
+                    >
                         {/* Grid lines */}
                         <defs>
-                            <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-                                <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#f0f0f0" strokeWidth="1"/>
+                            <pattern 
+                                id="grid" 
+                                width={dimensions.width / 10} 
+                                height={dimensions.height / 5} 
+                                patternUnits="userSpaceOnUse"
+                            >
+                                <path 
+                                    d={`M ${dimensions.width / 10} 0 L 0 0 0 ${dimensions.height / 5}`} 
+                                    fill="none" 
+                                    stroke="#f0f0f0" 
+                                    strokeWidth="1"
+                                />
                             </pattern>
                             <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
                                 <stop offset="0%" stopColor="#0C6FFF" stopOpacity="0.3" />
@@ -88,7 +122,7 @@ function LineChart({ data, title, subtitle }) {
                                     strokeWidth="2"
                                     className={styles.dataPoint}
                                 />
-                                {/* Score labels */}
+                                {/* Score labels - only show on larger screens */}
                                 <text
                                     x={point.x}
                                     y={point.y - 10}

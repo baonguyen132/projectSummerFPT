@@ -22,6 +22,12 @@
         border-radius: 0px 15px 0px 50px;
     }
 
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: rgba(12, 111, 255, 0.15) 0px 12px 35px;
+        border-left-color: #0C6FFF;
+    }
+
     .userImage {
         display: flex;
         justify-content: center;

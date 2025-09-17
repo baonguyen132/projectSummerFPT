@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./login.module.scss";
 import ButtonDefault from "../../components/common/button/buttonDefault";
-import FormGroup from "../../components/common/formGroup/formGroup";
+import InputGroup from "../../components/common/inputGroup/inputGroup";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -49,8 +49,8 @@ function Login() {
         
         <div className={styles.loginForm}>
           
-          <FormGroup formData={formData} handleChange={handleChange} name="username" icon="bx bx-user" />
-          <FormGroup formData={formData} handleChange={handleChange} name="password" icon="bx bx-lock" />
+          <InputGroup formData={formData} handleChange={handleChange} name="username" icon="bx bx-user" />
+          <InputGroup formData={formData} handleChange={handleChange} name="password" icon="bx bx-lock" type="password" />
           <ButtonDefault onClick={handleSubmit} disabled={isLoading}>
             {isLoading ? (
               <>

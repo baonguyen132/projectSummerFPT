@@ -27,7 +27,7 @@ const getBreadcrumbs = () => {
             path: routeTo,
             isLast
         };
-    }).filter(crumb => crumb.name.toLowerCase() !== 'dashboard'); // Loại bỏ 'admin' khỏi breadcrumb
+    }).filter(crumb => crumb.name.toLowerCase() !== 'dashboard'); // Loại bỏ 'dashboard' khỏi breadcrumb
 };
 
   const breadcrumbs = getBreadcrumbs();
@@ -43,7 +43,7 @@ const getBreadcrumbs = () => {
       {/* Breadcrumb Navigation - Left Side */}
       <div className={styles.breadcrumbSection}>
         <nav className={styles.breadcrumb}>
-          <Link to="/" className={styles.breadcrumbItem}>
+          <Link to="/dashboard" className={styles.breadcrumbItem}>
             <i className="bx bx-home"></i>
             Dashboard
           </Link>

@@ -75,7 +75,7 @@ function Dashboard() {
             </div>
 
             <div className={styles.chartsContainer}>
-                <div className={styles.chartItem}>
+                <div className={styles.chartItem} style={{ flex: '1' }}>
                     <BarChart 
                         data={userGrowthData}
                         title="Biểu đồ số lượng người dùng"
@@ -83,7 +83,7 @@ function Dashboard() {
                     />
                 </div>
 
-                <div className={styles.chartItem}>
+                <div className={styles.chartItem} style={{flex: '2'}}>
                     <SemiCircleChart 
                         percentage={95}
                         title="Tỷ lệ hài lòng"
@@ -91,7 +91,7 @@ function Dashboard() {
                     />
                 </div>
 
-                <div className={styles.chartItem}>
+                <div className={styles.chartItem} style={{ flex: '2' }}>
                     <PieChart 
                         data={pieChartData}
                         title="Độ tuổi tham gia"

@@ -62,11 +62,7 @@
             transform: translate(-50%, -50%);
         }
 
-        &:hover {
-            transform: scale(1.1) rotate(90deg);
-            box-shadow: 0 15px 40px rgba(12, 111, 255, 0.35);
-        }
-
+        
         i {
             color: #fff;
             font-size: 1.8rem;

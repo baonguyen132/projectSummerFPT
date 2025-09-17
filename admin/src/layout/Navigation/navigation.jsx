@@ -4,17 +4,17 @@ import { NavLink, useLocation } from "react-router-dom";
 
 function Navigation() {
   const menuItems = [
-    { icon: "bx-home", label: "Dashboard", link: "/" },
-    { icon: "bx-user", label: "User", link: "/user" },
-    { icon: "bx-checks", label: "Test", link: "/test" },
-    { icon: "bx-education", label: "Lesson", link: "/lesson" },
-    { icon: "bx-globe-europe", label: "Culture", link: "/culture" },
-    { icon: "bx-news", label: "News", link: "/news" },
-    { icon: "bxr  bx-coins", label: "Finance", link: "/finance" },
+    { icon: "bx-home", label: "Dashboard", link: "/dashboard" },
+    { icon: "bx-user", label: "User", link: "/dashboard/user" },
+    { icon: "bx-checks", label: "Test", link: "/dashboard/test" },
+    { icon: "bx-education", label: "Lesson", link: "/dashboard/lesson" },
+    { icon: "bx-globe-europe", label: "Culture", link: "/dashboard/culture" },
+    { icon: "bx-news", label: "News", link: "/dashboard/news" },
+    { icon: "bxr  bx-coins", label: "Finance", link: "/dashboard/finance" },
   ];
   const menuItemsOther = [
-    { icon: "bx-user-circle", label: "Profile", link: "/profile" },
-    { icon: "bx-arrow-big-left", label: "Logout", link: "/logout" },
+    { icon: "bx-user-circle", label: "Profile", link: "/dashboard/profile" },
+    { icon: "bx-arrow-big-left", label: "Logout", link: "/dashboard/logout" },
   ];
   const location = useLocation();
 

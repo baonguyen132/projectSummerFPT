@@ -4,14 +4,15 @@ import Login from "./pages/Login/login";
 import Dashboard from "./pages/screens/dashboard/dashboard";
 import User from "./pages/screens/user/user";
 import Test from "./pages/screens/test/test";
+import Lesson from "./pages/screens/lesson/lesson";
 
 const router = createBrowserRouter([
   {
-    path: "/login",
+    path: "/dashboard/login",
     element: <Login />,
   },
   {
-    path: "/",
+    path: "/dashboard",
     element: <AdminPage />,
     children: [
         {
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
         },
         {
             path: "lesson",
-            element: <h1>Lesson Page</h1>,
+            element: <Lesson />,
         },
         {
             path: "culture",

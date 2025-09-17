@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./user.module.scss";
 import ItemUser from "../../../components/User/itemUser";
 import FloatingButton from "../../../components/common/floatingButton/floatingButton";
+import DialogCustome from "../../../components/common/Dialog/DialogCustome";
+import FormSignUpUser from "../../../components/User/FormSignUpUser";
 function User() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleButtonClick = () => {
+    setIsDialogOpen(true);
+    if (handleClick) {
+      handleClick();
+    }
+  };
+
+  const closeDialog = () => {
+    setIsDialogOpen(false);
+  };
+
   const user = [
     {
       id: 1,
@@ -76,15 +91,51 @@ function User() {
     },
   ];
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    role: "",
+    description: "",
+  });
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form data:", formData);
+    // Handle form submission here
+    onClose();
+  };
+
   return (
     <div className={styles.userContainer}>
       {user.map((item) => (
         <ItemUser key={item.id} itemUser={item} />
       ))}
 
-      <FloatingButton handleClick={() => {console.log("Clicked");
-      }}/>
-      
+      <FloatingButton
+        title="Tạo nhân viên mới"
+        handleClick={() => {
+          setIsDialogOpen(true);
+        }}
+      />
+
+      {isDialogOpen && (
+        <DialogCustome
+          isOpen={isDialogOpen}
+          onClose={closeDialog}
+          title="Tạo nhân viên mới"
+          handleSubmit={handleSubmit} 
+        >
+          <FormSignUpUser formData={formData} handleInputChange={handleInputChange} />
+        </DialogCustome>
+      )}
     </div>
   );
 }

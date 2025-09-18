@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import "./css/Question.css";
 import AnswerOption from "./AnswerOption";
 
-const Question = ({ question, answers, correctIndex, explanation }) => {
-  const [selected, setSelected] = useState(null);
-
-  const handleSelect = (index) => {
-    setSelected(index);
+const Question = ({ question, answers, correctIndex, explanation, selectedAnswer, onSelectAnswer }) => {
+  const handleSelect = (idx) => {
+    if (selectedAnswer === null) onSelectAnswer(idx);
   };
 
   return (
@@ -16,7 +14,7 @@ const Question = ({ question, answers, correctIndex, explanation }) => {
       <div className="answers">
         {answers.map((ans, idx) => {
           let status = "default";
-          if (selected !== null && idx === selected) {
+          if (selectedAnswer !== null && idx === selectedAnswer) {
             status = idx === correctIndex ? "correct" : "wrong";
           }
 
@@ -32,9 +30,9 @@ const Question = ({ question, answers, correctIndex, explanation }) => {
         })}
       </div>
 
-      {selected !== null && (
+      {selectedAnswer !== null && (
         <p className="explanation">
-          {selected === correctIndex
+          {selectedAnswer === correctIndex
             ? "✅ Chính xác! " + explanation
             : "❌ Sai rồi! " + explanation}
         </p>

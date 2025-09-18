@@ -2,6 +2,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ButtonDemo from "./pages/ButtonDemo";
 import VocabularyPage from "./components/Vocabulary/VocabularyPage";
 import PriceModal from "./components/Price/PriceModal";
+import Exam from "./components/Exam/Exam";
+import ExamType from "./components/ExamType/ExamType";
+import Result from "./components/Result/Result";
 import Culture from "./pages/Culture/Culture";
 import Update from "./pages/Update/Update";
 import Home from "./pages/Home/Home";
@@ -43,11 +46,22 @@ const router = createBrowserRouter([
         path: "/practiceExam",
         element: <PracticeExam/>,
       },
-        {
+      {
+        path: "/examType",
+        element: <ExamType />,
+      },
+      {
         path: "/realExam",
         element: <RealExam/>,
       },
-
+      {
+        path: "exam/:examType/:examId",
+        element: <Exam />,
+      },
+      {
+        path: "/result",
+        element: <Result/>,
+      },
 
     ]
   },

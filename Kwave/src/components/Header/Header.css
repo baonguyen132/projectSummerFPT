@@ -83,3 +83,36 @@ a{
   text-decoration: none;
   color: #418B5F;
 }
+
+/* Sidebar ẩn mặc định */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* ẩn bên trái */
+  width: 250px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  transition: left 0.3s ease;
+  z-index: 300;
+}
+
+.sidebar.open {
+  left: 0; /* trượt vào */
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .menu-section {
+    display: none; /* ẩn menu chính */
+  }
+
+  .logo-section i {
+    font-size: 28px;
+    cursor: pointer;
+    color: #418B5F;
+  }
+}

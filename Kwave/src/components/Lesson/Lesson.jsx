@@ -15,6 +15,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Lesson = ({ step }) => {
   const [activeTab, setActiveTab] = useState(null);
   const [answers, setAnswers] = useState(Array(readingData.length).fill(null));
+  const [listenIndex, setListenIndex] = useState(0);
 
   const progressByStep = {
     0: ["completed","completed","completed","completed","completed","completed"], 
@@ -49,7 +50,6 @@ const Lesson = ({ step }) => {
     );
   }
 
-  const [listenIndex, setListenIndex] = useState(0);
 
   // Điều khiển prev/next cho ImageNavigator
   const handlePrev = () => {
@@ -62,8 +62,6 @@ const Lesson = ({ step }) => {
 
   // Hàm handle click tab
   const handleClickTab = (key, locked) => {
-    if (locked) return;
-    // Nếu luyện viết hoặc luyện nói, show toast
     if (key === "viet" || key === "noi") {
       toast.info("⚠️ Tính năng đang phát triển", {
         position: "top-right",
@@ -74,9 +72,11 @@ const Lesson = ({ step }) => {
         draggable: true,
         progress: undefined,
       });
-    } else {
-      setActiveTab(key);
+      return;
     }
+
+    if (locked) return; // để sau, tránh chặn viet/noi
+    setActiveTab(key);
   };
 
   return (

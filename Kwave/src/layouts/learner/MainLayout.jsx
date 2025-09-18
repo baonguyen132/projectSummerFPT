@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Outlet } from 'react-router'
-import { UserContext } from '../contexts/UserContext'
+import { UserContext } from '../../contexts/UserContext'
 
 const MainLayout = () => {
   const [user, setUser] = useState(null)

@@ -1,8 +1,8 @@
 import React from 'react';
-import NewsHeader from '../../components/news/NewsHeader';
-import NewsFilterBar from '../../components/news/NewsFilterBar';
-import NewsMainContent from '../../components/news/NewsMainContent';
-import NewsSidebar from '../../components/news/NewsSidebar';
+import NewsHeader from '../../components/learner/news/NewsHeader';
+import NewsFilterBar from '../../components/learner/news/NewsFilterBar';
+import NewsMainContent from '../../components/learner/news/NewsMainContent';
+import NewsSidebar from '../../components/learner/news/NewsSidebar';
 
 const LearnerNews = () => {
   return (

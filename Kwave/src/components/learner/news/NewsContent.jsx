@@ -1,8 +1,105 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const NewsContent = () => {
+  const [selectedText, setSelectedText] = useState('')
+  const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 })
+  const [showPopup, setShowPopup] = useState(false)
+
+  // Mock data for selected word lookup
+  const getWordInfo = (word) => {
+    const wordDatabase = {
+      '미식의': {
+        korean: '미식의',
+        phonetic: '/maeryeok/',
+        meaning: 'Sức hấp dẫn, sự lôi cuốn, sự thu hút',
+        topik: 'TOPIK II',
+        category: 'danh từ'
+      },
+      '나라': {
+        korean: '나라',
+        phonetic: '/nara/',
+        meaning: 'Đất nước, quốc gia',
+        topik: 'TOPIK I',
+        category: 'danh từ'
+      },
+      '프랑스': {
+        korean: '프랑스',
+        phonetic: '/peurangseu/',
+        meaning: 'Pháp (quốc gia)',
+        topik: 'TOPIK I',
+        category: 'danh từ riêng'
+      },
+      '매력적인': {
+        korean: '매력적인',
+        phonetic: '/maeryeokjeogin/',
+        meaning: 'Quyến rũ, hấp dẫn',
+        topik: 'TOPIK II',
+        category: 'tính từ'
+      }
+    }
+    return wordDatabase[word] || {
+      korean: word,
+      phonetic: `/${word}/`,
+      meaning: 'Tra cứu từ điển',
+      topik: 'TOPIK',
+      category: 'từ'
+    }
+  }
+
+  useEffect(() => {
+    let currentRange = null
+
+    const updatePopupPosition = () => {
+      if (currentRange) {
+        const rect = currentRange.getBoundingClientRect()
+        setPopupPosition({
+          x: rect.left + rect.width / 2,  
+          y: rect.bottom + window.scrollY - 10
+        })
+      }
+    }
+
+    const handleMouseUp = () => {
+      const selection = window.getSelection()
+      const text = selection.toString().trim()
+      
+      if (text && text.length > 0) {
+        currentRange = selection.getRangeAt(0)
+        updatePopupPosition()
+        setSelectedText(text)
+        setShowPopup(true)
+      } else {
+        setShowPopup(false)
+        currentRange = null
+      }
+    }
+
+    const handleMouseDown = () => {
+      setShowPopup(false)
+      currentRange = null
+    }
+
+    const handleScroll = () => {
+      if (showPopup && currentRange) {
+        updatePopupPosition()
+      }
+    }
+
+    document.addEventListener('mouseup', handleMouseUp)
+    document.addEventListener('mousedown', handleMouseDown)
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      document.removeEventListener('mouseup', handleMouseUp)
+      document.removeEventListener('mousedown', handleMouseDown)
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [showPopup])
+
+  const wordInfo = selectedText ? getWordInfo(selectedText) : null
+
   return (
-    <div className="flex-1 space-y-6">
+    <div className="flex-1 space-y-6 relative">
       <div className="flex items-center gap-2 text-sm text-gray-500">
         <span>Nguồn: Kids Donga</span>
         <span>·</span>
@@ -19,7 +116,7 @@ const NewsContent = () => {
         className="w-full max-h-[500px] object-cover rounded-lg"
       />
 
-      <div className="space-y-4 text-lg leading-relaxed">
+      <div className="space-y-4 text-lg leading-relaxed select-text">
         <h1>미식의 나라 프랑스도 ‘꼬북칩’에 푹 빠졌네</h1>
         <p>
           네 발로 걷는 동물과 인간의 큰 차이는 뭘까요? 바로 두 손! 인간은 손을 자유자재로 움직여 도구를 만드는 등 동물 중에서 가장 똑똑한 존재로 진화했어요
@@ -42,6 +139,70 @@ const NewsContent = () => {
           있었기때 먼진한 베면서 "브로음한 맥 름 수 있었다"는 논틀이 임한 것
         </p>
       </div>
+
+      {/* Word Lookup Popup */}
+      {showPopup && wordInfo && (
+        <div 
+          className="absolute z-50 bg-gray-800 text-white rounded-lg shadow-xl p-4 min-w-80"
+          style={{
+            left: `${popupPosition.x}px`,
+            top: `${popupPosition.y}px`
+          }}
+        >
+          {/* Language flags */}
+          <div className="flex items-center gap-2 mb-3">
+            <span className="bg-red-600 text-white px-2 py-1 text-xs rounded">🇻🇳 VI</span>
+            <span className="bg-white text-black px-2 py-1 text-xs rounded">🏴󠁧󠁢󠁥󠁮󠁧󠁿 EN</span>
+          </div>
+
+          {/* Word and phonetic */}
+          <div className="mb-3">
+            <div className="text-orange-400 text-lg font-medium flex items-center gap-2">
+              {wordInfo.korean}
+              <span className="text-sm text-gray-300">{wordInfo.phonetic}</span>
+              <button className="text-white hover:text-orange-400">
+                🔊
+              </button>
+            </div>
+            <div className="text-xs text-gray-400">
+              [{wordInfo.category}] • {wordInfo.topik}
+            </div>
+          </div>
+
+          {/* Category badge */}
+          <div className="mb-3">
+            <span className="text-yellow-400 text-sm">⭐ {wordInfo.category}</span>
+          </div>
+
+          {/* Meaning */}
+          <div className="mb-4">
+            <div className="text-orange-400 text-sm font-medium">{wordInfo.meaning}</div>
+          </div>
+
+          {/* Note section */}
+          <div className="mb-4">
+            <div className="text-xs text-gray-400">📝 Thêm ghi chú</div>
+          </div>
+
+          {/* Action buttons */}
+          <div className="flex justify-between items-center border-t border-gray-600 pt-3">
+            <button className="text-sm text-gray-300 hover:text-white">Xem thêm</button>
+            <button className="text-sm text-gray-300 hover:text-white">Sao chép</button>
+            <button 
+              className="bg-orange-500 text-white px-4 py-1 rounded text-sm hover:bg-orange-600"
+              onClick={() => setShowPopup(false)}
+            >
+              Đóng
+            </button>
+          </div>
+
+          {/* Example sentence */}
+          <div className="mt-3 text-xs text-gray-400">
+            <div>검증을 거치는데요</div>
+            <div>일부 매장에만 제품을 넣은 뒤 판매의 추이를 보</div>
+          </div>
+        </div>
+      )}
 
       <div className="flex items-center gap-4">
         <button className="flex items-center gap-2 text-green-600 hover:text-green-700">

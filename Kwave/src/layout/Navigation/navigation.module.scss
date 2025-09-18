@@ -131,6 +131,53 @@
                 }
             }
 
+            .logout {
+                cursor: pointer;
+                display: flex;
+                width: 100%;
+                min-height: 42px;
+                /* Giảm từ 50px xuống 42px */
+                text-decoration: none;
+                gap: 10px;
+                /* Giảm từ 14px xuống 10px */
+                align-items: center;
+                justify-content: flex-start;
+                padding: 8px 12px;
+                /* Giảm từ 10px 16px xuống 8px 12px */
+                border-radius: 10px;
+                /* Giảm từ 12px xuống 10px */
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background: rgba(255, 255, 255, 0.1);
+                }
+
+                i {
+                    font-size: 18px;
+                    /* Giảm từ 22px xuống 18px */
+                    background: white;
+                    color: #0c6fff;
+                    font-weight: 500;
+                    padding: 8px;
+                    /* Giảm từ 10px xuống 8px */
+                    border-radius: 8px;
+                    /* Giảm từ 10px xuống 8px */
+                    min-width: 34px;
+                    /* Giảm từ 42px xuống 34px */
+                    text-align: center;
+                    transition: all 0.3s ease;
+                }
+
+                span {
+                    font-size: 14px;
+                    /* Giảm từ 17px xuống 14px */
+                    color: white;
+                    font-weight: 500;
+                    letter-spacing: 0.2px;
+                    /* Giảm từ 0.3px */
+                }
+            }
+
             h3 {
                 padding: 8px 12px;
                 color: white;

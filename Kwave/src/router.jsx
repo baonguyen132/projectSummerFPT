@@ -1,10 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AdminPage from "./pages/admin";
-import Login from "./pages/Login/login";
-import Dashboard from "./pages/screens/dashboard/dashboard";
-import User from "./pages/screens/user/user";
-import Test from "./pages/screens/test/test";
-import Lesson from "./pages/screens/lesson/lesson";
+import AdminPage from "./pages/admin/admin";
+import Login from "./pages/admin/Login/login";
+import Dashboard from "./pages/admin/screens/dashboard/dashboard";
+import User from "./pages/admin/screens/user/user";
+import Test from "./pages/admin/screens/test/test";
+import Lesson from "./pages/admin/screens/lesson/lesson";
 
 const router = createBrowserRouter([
   {

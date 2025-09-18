@@ -1,8 +1,9 @@
-import React, { useMemo } from "react";
+import React, { use, useMemo } from "react";
 import styles from "./navigation.module.scss";
 import { NavLink, useLocation } from "react-router-dom";
+import { handleLogout } from "../../services/admin/loginService";
 
-function Navigation() {
+function Navigation({user}) {
   const menuItems = [
     { icon: "bx-home", label: "Dashboard", link: "/dashboard" },
     { icon: "bx-user", label: "User", link: "/dashboard/user" },
@@ -12,10 +13,7 @@ function Navigation() {
     { icon: "bx-news", label: "News", link: "/dashboard/news" },
     { icon: "bxr  bx-coins", label: "Finance", link: "/dashboard/finance" },
   ];
-  const menuItemsOther = [
-    { icon: "bx-user-circle", label: "Profile", link: "/dashboard/profile" },
-    { icon: "bx-arrow-big-left", label: "Logout", link: "/dashboard/logout" },
-  ];
+  const menuItemsOther = [];
   const location = useLocation();
 
   // Tính toán vị trí của liquid_glass dựa trên route hiện tại
@@ -26,7 +24,7 @@ function Navigation() {
 
   if (activeIndex !== -1) {
     activeTop = activeIndex * 58;
-  } 
+  }
 
   return (
     <nav className={styles.navigation}>
@@ -55,17 +53,21 @@ function Navigation() {
           </ul>
           <h3>Account pages</h3>
           <ul>
-            {menuItemsOther.map((item, index) => (
-              <li key={index}>
-                <NavLink
-                  to={item.link}
-                  className={({ isActive }) => (isActive ? styles.active : "")}
-                >
-                  <i className={`bx ${item.icon}`}></i>
-                  <span>{item.label}</span>
-                </NavLink>
-              </li>
-            ))}
+            <li>
+              <NavLink to="/dashboard/profile">
+                <i className={`bx bx-user-circle`}></i>
+                <span>Profile</span>
+              </NavLink>
+            </li>
+            <li
+              className={styles.logout}
+              onClick={() => {
+                handleLogout();
+              }}
+            >
+              <i className={`bx-arrow-big-left`}></i>
+              <span>Logout</span>
+            </li>
           </ul>
         </div>
         <div className={styles.user}>
@@ -77,8 +79,8 @@ function Navigation() {
               />
             </div>
             <div className={styles.userInfo}>
-              <h4>Anita Cruz</h4>
-              <p>anita@commerce.com</p>
+              <h4>{user ? user[1] : "Unknown User"}</h4>
+              <p>{user ? user[2] : "Unknown Email"}</p>
             </div>
             <div className={styles.userActions}>
               <button className={styles.menuBtn}>

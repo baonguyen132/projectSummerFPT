@@ -210,12 +210,12 @@
   box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
 }
 
-.scoreColumn {
+.pointColumn {
   width: 70px;
   text-align: center;
 }
 
-.scoreValue {
+.pointValue {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -230,11 +230,11 @@
   height: 36px;
 }
 
-.explanationColumn {
+.solutionColumn {
   width: 220px; // Reduced slightly
 }
 
-.explanationText {
+.solutionText {
   line-height: 1.5;
   color: #64748b;
   font-style: italic;
@@ -326,12 +326,12 @@
 }
 
 // Badge styles
-.categoryColumn {
+.typeColumn {
   width: 100px;
   text-align: center;
 }
 
-.categoryBadge {
+.typeBadge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -387,11 +387,11 @@
     width: 320px;
   }
 
-  .explanationColumn {
+  .solutionColumn {
     width: 200px;
   }
 
-  .categoryColumn {
+  .typeColumn {
     width: 90px;
   }
 }
@@ -410,15 +410,15 @@
     width: 300px;
   }
 
-  .explanationColumn {
+  .solutionColumn {
     width: 180px;
   }
 
-  .categoryColumn {
+  .typeColumn {
     width: 85px;
   }
 
-  .categoryBadge {
+  .typeBadge {
     padding: 4px 8px;
     font-size: 0.7rem;
 
@@ -451,15 +451,15 @@
     width: 280px;
   }
 
-  .explanationColumn {
+  .solutionColumn {
     width: 160px;
   }
 
-  .categoryColumn {
+  .typeColumn {
     width: 80px;
   }
 
-  .categoryBadge {
+  .typeBadge {
     padding: 3px 6px;
     font-size: 0.65rem;
     gap: 4px;
@@ -470,7 +470,7 @@
   }
 
   .correctAnswer,
-  .scoreValue {
+  .pointValue {
     transform: scale(0.9);
   }
 }
@@ -510,7 +510,7 @@
     padding: 4px 0;
   }
 
-  .categoryBadge {
+  .typeBadge {
     flex-direction: column;
     gap: 2px;
     padding: 4px;
@@ -579,7 +579,7 @@
     background: #008000;
   }
 
-  .scoreValue {
+  .pointValue {
     background: #ff8c00;
   }
 

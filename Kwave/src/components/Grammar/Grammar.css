@@ -1,0 +1,79 @@
+.grammar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Tạo khoảng cách cả ngang và dọc */
+  justify-content: flex-start; /* Giữ đều 3 card mỗi hàng */
+  padding: 20px;
+}
+
+.grammar-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  border: 2px solid #b5b5b548;
+}
+.grammar-name {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid #b6b6b6;
+  margin-bottom: 10px;
+}
+.grammar-name > h3 {
+  color: #808080;
+}
+
+.define {
+  background-color: #f7dfe0;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+}
+.define ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+.define li {
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.example, .homework {
+  background-color: #f0f0f0;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+}
+.example ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+.homework ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+.homework li {
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+/* Circle button */
+.circle-btn {
+  border-radius: 100%;
+  width: 38px;
+  height: 38px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Result icons */
+.icon {
+  font-size: 20px;
+  margin-left: 8px;
+}
+.icon.correct {
+  color: #0baa4d;
+}
+.icon.wrong {
+  color: #ff4d4f;
+}

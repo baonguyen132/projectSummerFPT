@@ -1,0 +1,305 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 8px 16px;
+}
+
+/* ===== Size ===== */
+.button.small {
+  font-size: 14px;
+  padding: 6px 12px;
+}
+
+.button.medium {
+  font-size: 16px;
+  padding: 8px 16px;
+}
+
+.button.large {
+  font-size: 18px;
+  padding: 12px 20px;
+}
+
+/* ===== Kiểu màu ===== */
+
+/* fullgreen – xanh lá (Login, Hiện tại) */
+.button.fullgreen {
+  background-color: #2ecc71;
+  color: white;
+}
+.button.fullgreen:hover {
+  background-color: #27ae60;
+}
+
+/* outlinegreen – viền xanh (Yêu thích, Login outline) */
+.button.outlinegreen {
+  background-color: white;
+  border: 2px solid #51AE77;
+  color: #51AE77;
+  box-shadow: 2px 2px #90909041;
+
+}
+.button.outlinegreen:hover {
+  background-color: #b3e4cd;
+}
+
+/* ===== Menu textgreen (chữ xanh, có gạch) ===== */
+.button.textgreen {
+  background-color: white;
+  color: #418B5F;
+}
+
+.button.textgreen:hover {
+  background-color: #caffe0;
+}
+
+/* orange – đỏ (Nhận quyền, Đăng ký nhanh) */
+.button.orange {
+  background-color: #ff4d4f;
+  color: white;
+}
+.button.orange:hover {
+  background-color: #FF4800;
+}
+
+/* yellow – vàng (Sơ cấp 1, Giới thiệu) */
+.button.yellow {
+  background-color: #FFDE39;
+  color: black;
+  font-weight: bold;
+  box-shadow: 2px 2px #11111148;
+
+}
+.button.yellow:hover {
+  background-color: #f9d107;
+}
+
+/* darkgreen – xanh đậm (dạng trạng thái chọn) */
+.button.darkgreen {
+  background-color: #16a34a;
+  color: white;
+}
+.button.darkgreen:hover {
+  background-color: #15803d;
+}
+
+/* outlineblack – nền trắng viền đen (Đề 3) */
+.button.outlineblack {
+  background-color: white;
+  border: 2px solid #111;
+  color: #111;
+}
+.button.outlineblack:hover {
+  background-color: #f5f5f5;
+}
+
+/* grey / Disabled – xám (Đề 5) */
+.button.grey {
+  background-color: #9ca3af;
+  color: #4d4d4d;
+  box-shadow: 2px 2px #90909041;
+  /* cursor: not-allowed; */
+}
+
+/* white / Disabled – xám (Đề 5) */
+.button.white {
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 2px 2px #11111148;
+  border: 2px solid #b5b5b548;
+
+}
+
+.button.white-search {
+  background-color: #ffffff;
+  color: #4b4b4b;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* ===== Correct (Đúng) ===== */
+.button.correct {
+  background-color: #2ecc71;
+  color: white;
+}
+.button.correct:hover {
+  background-color: #27ae60;
+}
+
+/* ===== Wrong (Sai) ===== */
+.button.wrong {
+  background-color: #ff4d4f;
+  color: white;
+}
+.button.wrong:hover {
+  background-color: #d9363e;
+}
+
+/* ===== Button LỰA CHỌN HIỆN TẠI - YÊU THÍCH ===== */
+.button.segmented {
+  display: inline-flex;
+  border: 2px solid #51AE77;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 0; /* bỏ padding chung */
+}
+
+.button.segmented .segmented-item {
+  border: none;
+  background: white;
+  color: #51AE77;
+  font-weight: 500;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+  font-size: 18px;
+}
+
+.button.segmented .segmented-item.active {
+  background: #2ecc71;
+  color: white;
+}
+
+.button.segmented .segmented-item:not(.active):hover {
+  background: #e8f9f0;
+}
+
+/* ===== Card dọc (ảnh trên – chữ dưới) ===== */
+.button.card .card-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 7px;
+  width: 120px;
+  height: 100px;
+  border: 2px solid #16a34a;
+  border-radius: 10px;
+  background-color: white;
+}
+.button.card .card-vertical .button-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.button.card .card-vertical .button-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+.button.card .card-vertical:hover {
+  background-color: #d1f6dc;
+}
+
+/* ===== Card ngang (ảnh trái – chữ phải - nền trắng) ===== */
+.button.card .card-horizontal-off {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 5px;
+  width: 150px;
+  height: 60px;
+  box-shadow: 3px 3px #11111148;
+  border-radius: 10px;
+  background-color: white;
+}
+.button.card .card-horizontal-off .button-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.button.card .card-horizontal-off .button-text {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+.button.card .card-horizontal-off:hover {
+  background-color: #d0ddd4;
+}
+
+/* ===== Card ngang (ảnh trái – chữ phải - nền vàng) ===== */
+.button.card .card-horizontal-on {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 5px;
+  width: 150px;
+  height: 60px;
+  box-shadow: 3px 3px #11111148;
+  border-radius: 10px;
+  background-color: #FFDE39;
+}
+.button.card .card-horizontal-on .button-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.button.card .card-horizontal-on .button-text {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+.button.card .card-horizontal-on:hover {
+  background-color: #f9d107;
+}
+
+/* ===== Card ngang (ảnh trái – chữ phải - nền xám) ===== */
+.button.card .card-horizontal-locked {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 5px;
+  width: 150px;
+  height: 60px;
+  box-shadow: 3px 3px #11111148;
+  border-radius: 10px;
+  background-color: #90909086;
+}
+.button.card .card-horizontal-locked .button-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.button.card .card-horizontal-locked .button-text {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+.button.card .card-horizontal-locked:hover {
+  background-color: #545454a8;
+  cursor: not-allowed;
+}
+
+/* ===== User button (tròn để avatar) ===== */
+.button.user-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;       /* tròn */
+  border: 1px solid #418B5F;
+  padding: 0;               /* icon/avatar fit trong vòng */
+  overflow: hidden;
+}
+
+.button.user-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* sau này thay avatar */
+  border-radius: 50%;
+}
+

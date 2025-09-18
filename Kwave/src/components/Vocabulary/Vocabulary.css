@@ -1,0 +1,154 @@
+/* Flashcard */
+.flashcard-container{
+    padding: 20px 30px 50px 30px;
+    border: 1px solid #a8a8a8;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.flashcard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #e8f6e9;
+    border: 1px solid #a8a8a8;
+    border-radius: 7px;
+    padding: 40px;
+    height: 140px;
+}
+
+.flashcard p {
+  font-size: 30px;
+  margin-top: 8px;
+  color: #555;
+}
+.flashcard-container {
+  perspective: 1000px; /* cần để lật 3D */
+  padding: 20px 30px 50px 30px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.flashcard {
+  width: 500px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.flashcard.flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard .front,
+.flashcard .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* ẩn mặt sau khi chưa lật */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #a8a8a8;
+  border-radius: 7px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.flashcard .front {
+  background: #e8f6e9;
+}
+
+.flashcard .back {
+  background: #e8f6e9;
+  transform: rotateY(180deg);
+}
+.flashcard-controls{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.flashcard-controls>label{
+  text-align: center;
+}
+.flashcard-controls>Button i{
+  font-size: 25px;
+  color: #747474;
+}
+/* Search bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 4px 10px;
+}
+
+.search-bar input {
+  border: none;
+  flex: 1;
+  outline: none;
+  padding: 8px;
+  font-size: 16px;
+}
+
+
+/* Vocabulary item */
+.vocabulary-item-container {
+  border: 1px solid #747474;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.vocabulary-item small {
+  display: block;
+  font-size: 12px;
+  color: #888;
+}
+
+.korean {
+  font-size: 25px;
+  margin: 4px 0;
+}
+
+.vietnamese {
+  font-size: 16px;
+  color: #555;
+  border: 1px solid #747474;
+  padding: 12px 15px;
+  border-radius: 10px;
+
+}
+
+.vocabulary-actions {
+  display: flex;
+  gap: 8px;
+  height: fit-content;
+}
+
+/* Kiểm tra từ vựng button */
+.test-button {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #f9f9f9;
+  cursor: pointer;
+}
+.vocabulary-page{
+    text-align: center;
+}

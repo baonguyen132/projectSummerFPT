@@ -1,0 +1,16 @@
+.examlist {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 20px 30px;
+}
+.examlist .list-1,
+.examlist .list-2,
+.examlist .list-3,
+.examlist .list-4,
+.examlist .list-5,
+.examlist .list-6,
+.examlist .list-7,
+.examlist .list-8,
+.examlist .list-9 {
+  padding: 30px 0 !important;
+}

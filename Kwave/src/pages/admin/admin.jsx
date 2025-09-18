@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
 import React, { useContext } from "react";
 import styles from "./admin.module.scss";
-import Layout from "../../layout/Layout";
-import Navigation from "../../layout/admin/Navigation/navigation";
+import Navigation from "../../layouts/admin/Navigation/navigation";
 import Sidebar from "../../components/admin/Sidebar/sidebar";
 import getToken from "../../utils/data";
 import { UserContext } from "../../contexts/UserContext";
+import AdminLayout from "../../layouts/AdminLayout";
 
 function AdminPage() {
   const accessToken = getToken();
@@ -14,7 +14,7 @@ function AdminPage() {
   }
   const {user , dispatch} = useContext(UserContext);
   return (
-    <Layout title={"Dashboard"}>
+    <AdminLayout title={"Dashboard"}>
       <div className={styles.adminContainer}>
         <div className={styles.navbar}>
             <Navigation user={user} />
@@ -26,7 +26,7 @@ function AdminPage() {
           </div>
         </div>
       </div>
-    </Layout>
+    </AdminLayout>
   );
 }
 export default AdminPage;

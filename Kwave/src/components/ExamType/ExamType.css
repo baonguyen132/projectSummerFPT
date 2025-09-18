@@ -1,0 +1,13 @@
+.examtype-container{
+  margin-top: 70px;
+}
+.examtype {
+  display: flex;
+  padding: 10px 0;
+  align-items: center;
+}
+.examtype .btn[class*="exam-"] {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}

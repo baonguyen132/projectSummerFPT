@@ -1,0 +1,24 @@
+.question-card {
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background: #fff;
+}
+
+.question {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.answers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.explanation {
+  margin-top: 12px;
+  font-style: italic;
+  color: #555;
+}

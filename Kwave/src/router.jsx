@@ -28,74 +28,77 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <AdminPage />,
     children: [
-        {
-            index: true,
-            element: <Dashboard />,
-        },
-        {
-            path: "user",
-            element: <User />,
-        },
-        {
-            path: "test",
-            element: <Test />,
-        },
-        {
-            path: "lesson",
-            element: <Lesson />,
-        },
-        {
-            path: "culture",
-            element: <h1>Culture Page</h1>,
-        },
-        {
-            path: "news",
-            element: <h1>News Page</h1>,
-        },
-        {
-            path: "finance",
-            element: <h1>Finance Page</h1>,
-        },
-        {
-            path: "profile",
-            element: <h1>Profile Page</h1>,
-        },
-        {
-            path: "logout",
-            element: <h1>Logout Page</h1>,
-        }
-    ]
+      {
+        index: true,
+        element: <Dashboard />,
+      },
+      {
+        path: "user",
+        element: <User />,
+      },
+      {
+        path: "test",
+        element: <Test />,
+      },
+      {
+        path: "lesson",
+        element: <Lesson />,
+      },
+      {
+        path: "culture",
+        element: <h1>Culture Page</h1>,
+      },
+      {
+        path: "news",
+        element: <h1>News Page</h1>,
+      },
+      {
+        path: "finance",
+        element: <h1>Finance Page</h1>,
+      },
+      {
+        path: "profile",
+        element: <h1>Profile Page</h1>,
+      },
+      {
+        path: "logout",
+        element: <h1>Logout Page</h1>,
+      },
+    ],
   },
+  {
     path: "/",
-    element: <MainLayout/>,
+    element: <MainLayout />,
     children: [
       {
         path: "/",
-        element: <Home/>,
-        index: true   
+        element: <Home />,
+        index: true,
       },
       {
-      path: "/home",
-      element: <Home/>,
-      index: true   
+        path: "/home",
+        element: <Home />,
+        index: true,
       },
       {
         path: "/roadmap",
-        element: <>
-          <Roadmap />
-        </>
+        element: (
+          <>
+            <Roadmap />
+          </>
+        ),
       },
       {
         path: "/culture",
-        element: <Culture/>,
+        element: <Culture />,
       },
       {
         path: "/update",
-        element: <Update/>,
+        element: <Update />,
       },
       {
         path: "/practiceExam",
-        element: <PracticeExam/>,
+        element: <PracticeExam />,
       },
       {
         path: "/examType",
@@ -103,7 +106,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/realExam",
-        element: <RealExam/>,
+        element: <RealExam />,
       },
       {
         path: "exam/:examType/:examId",
@@ -111,25 +114,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/result",
-        element: <Result/>,
+        element: <Result />,
       },
-
-    ]
+    ],
   },
-  
-  // {
-  //   path: "/culture",
-  //   element: <Culture></Culture>,
-  // },
-  //   {
-  //   path: "/price",
-  //   element: <PriceModal></PriceModal>,
-  // },
 
-  // {
-  //   path: "/buttons",
-  //   element: <ButtonDemo />,
-  // },
   {
     path: "*",
     element: (
@@ -139,12 +128,11 @@ const router = createBrowserRouter([
         <h1>Không tồn tại trang này</h1>
       </center>
     ),
-  }
+  },
 ]);
 
 function RouterCustome() {
-    return <RouterProvider router={router} />;
+  return <RouterProvider router={router} />;
 }
 
 export default RouterCustome;
-

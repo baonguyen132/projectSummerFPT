@@ -266,7 +266,7 @@ function TestDetail({ id }) {
           </tbody>
         </table>
 
-        {questions.length === 0 && (
+        {data.length === 0 && (
           <div className={styles.emptyState}>
             <i className="bx bx-file-blank"></i>
             <h3>Chưa có câu hỏi nào</h3>

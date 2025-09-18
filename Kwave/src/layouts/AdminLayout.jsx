@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet"; // để set <title> và meta
 
-function Layout({ title, children }) {
+function AdminLayout({ title, children }) {
   return (
     <>
       <Helmet>
@@ -19,4 +19,4 @@ function Layout({ title, children }) {
   );
 }
 
-export default Layout;
+export default AdminLayout;

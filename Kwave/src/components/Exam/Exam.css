@@ -1,0 +1,53 @@
+.exam-container{
+  margin: 70px 10% 0 10%;
+}
+.exam-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  height: calc(100vh - 70px);
+  text-align: center;
+}
+
+/* Cột số câu (trái) */
+.exam-section > div:first-child {
+  flex: 2; 
+  position: sticky;
+  top: 70px;
+  align-self: flex-start;
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+  border-right: 2px solid #b4b4b4;
+}
+
+/* Cột câu hỏi (phải) */
+.exam-section > div:last-child {
+  flex: 5; 
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+}
+.exam-content{
+    width: 75%;
+}
+/* Ẩn bớt thanh cuộn mặc định */
+.exam-content::-webkit-scrollbar {
+  width: 8px; /* độ dày */
+}
+
+.exam-content::-webkit-scrollbar-thumb {
+  background: #b1dfc4; /* màu thanh */
+  border-radius: 4px;
+}
+
+.exam-content::-webkit-scrollbar-track {
+  background: transparent; /* nền track */
+}
+.exam-timer {
+  margin-top: 10px;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  padding: 20px 50px;
+  font-size: 30px;
+}

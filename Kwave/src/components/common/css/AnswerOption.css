@@ -1,0 +1,39 @@
+.answer-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin: 6px;
+  min-width: 220px;
+  cursor: pointer;
+  background: #fff;
+  transition: border-color 0.2s ease;
+}
+
+.answer-option:hover {
+  border-color: #51AE77;
+}
+
+.answer-label {
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.answer-text {
+  flex: 1;
+}
+
+.icon {
+  font-size: 18px;
+  margin-left: 8px;
+}
+
+.icon.correct {
+  color: green;
+}
+
+.icon.wrong {
+  color: red;
+}

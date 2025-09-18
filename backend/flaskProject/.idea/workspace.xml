@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4afb2c64-2e2b-44ae-a736-be5a12d7e816" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example.py" beforeDir="false" afterPath="$PROJECT_DIR$/example.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mysql/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../mysql/Dockerfile" afterDir="false" />
-    </list>
+    <list default="true" id="4afb2c64-2e2b-44ae-a736-be5a12d7e816" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +34,7 @@
     &quot;Python.flaskProject.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;merger&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/FPT/tech/projectSummerFPT/backend/flaskProject&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -102,6 +97,7 @@
       <workItem from="1758153986048" duration="10618000" />
       <workItem from="1758175313955" duration="11758000" />
       <workItem from="1758203200572" duration="157000" />
+      <workItem from="1758237105003" duration="205000" />
     </task>
     <servers />
   </component>
@@ -109,6 +105,6 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/flaskProject$flaskProject.coverage" NAME="flaskProject Coverage Results" MODIFIED="1758203332810" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/flaskProject$flaskProject.coverage" NAME="flaskProject Coverage Results" MODIFIED="1758237146763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

@@ -75,8 +75,8 @@ const NewsItem = ({ id }) => {
 
 const Divider = () => {
   return (
-    <div className="w-[959px] p-2.5 inline-flex justify-start items-start gap-2.5 overflow-hidden">
-      <div className="w-[959px] h-0 outline outline-4 outline-offset-[-2px] outline-green-600"></div>
+    <div className="w-full flex justify-center py-4">
+      <div className="w-250 h-0 border-t-2 border-green-300"></div>
     </div>
   );
 };

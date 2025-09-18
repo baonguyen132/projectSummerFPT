@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import UpgradeButton from '../../common/UpgradeButton'
 
 const NewsContent = () => {
+  const navigate = useNavigate()
   const [selectedText, setSelectedText] = useState('')
   const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 })
   const [showPopup, setShowPopup] = useState(false)
@@ -243,14 +246,13 @@ const NewsContent = () => {
 
       <hr className="border-t border-gray-200" />
 
-      <div className="bg-[#E8FFF1] px-4 py-3 flex items-center justify-between rounded-lg mb-6">
-        <span className="text-[#00A551] font-medium">
-          Nâng cấp ngay để sử dụng tính năng dịch bài
-        </span>
-        <button className="bg-[#00A551] text-white px-6 py-2 rounded-full hover:bg-[#008543] transition-colors duration-200 text-sm font-medium">
-          Nâng cấp ngay
-        </button>
-      </div>
+      <UpgradeButton
+        variant="default"
+        size="medium"
+        message="Nâng cấp ngay để sử dụng tính năng dịch bài"
+        buttonText="Nâng cấp ngay"
+        className="mb-6"
+      />
 
       <div className="space-y-4">
         <h2 className="text-xl font-semibold">Bài báo khác</h2>

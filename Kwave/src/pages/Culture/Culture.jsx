@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../../components/Header/Header";
 import CultureSlide from "../../components/CultureSlide/CultureSlide";
 import ModalCulture from "../../components/common/ModalCulture";
+import UpgradeButton from "../../components/common/UpgradeButton";
 
 import img1 from "../../asset/image/img1.png";
 import img2 from "../../asset/image/img2.png";
@@ -45,6 +46,15 @@ function Culture() {
             />
           </div>
         ))}
+      </div>
+
+      <div style={{ margin: '40px 0' }}>
+        <UpgradeButton
+          variant="premium"
+          size="large"
+          message="🎎 Khám phá thêm 100+ nội dung văn hóa Hàn Quốc độc đáo"
+          buttonText="Nâng cấp để xem thêm"
+        />
       </div>
 
       {/* Overlay chi tiết */}

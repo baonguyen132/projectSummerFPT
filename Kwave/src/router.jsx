@@ -19,6 +19,7 @@ import LearnerNews from "./pages/learner/LearnerNews";
 import LearnerNewsDetails from "./pages/learner/LearnerNewsDetails";
 import LearnerVideo from "./pages/learner/LearnerVideo";
 import LearnerVideoDetails from "./pages/learner/LearnerVideoDetails";
+import UserProfile from "./pages/UserProfile/UserProfile";
 
 const router = createBrowserRouter([
   // Auth route
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
       {
         path: "/realExam",
         element: <RealExam/>,
+      },
+      {
+        path: "/profile",
+        element: <UserProfile/>,
       },
     ]
   },

@@ -1,26 +1,74 @@
-import React from 'react';
+import React, { useState } from "react";
+import "../../Header/Header.css";
+import Button from "../../common/Button";
+import { NavLink } from "react-router-dom";
+import NewsFilterBar from "./NewsFilterBar";
 
 const NewsHeader = () => {
+  const [openExam, setOpenExam] = useState(false);
+  const [openUser, setOpenUser] = useState(false);
+
   return (
-    <div className="flex items-center justify-between p-4">
-      <div className="flex items-center gap-3">
-        <img src="/logo.png" alt="K-Wave" className="w-10 h-10" />
-        <h1 className="text-2xl font-bold">K-Wave</h1>
+    <>
+      <header className="header">
+        {/* Logo */}
+        <div className="logo-section">
+          <i className="bxr bx-dashboard" />
+          <span className="logo-text">K-Wave</span>
+        </div>
+
+        {/* Menu */}
+        <nav className="menu-section">
+          <Button type="textgreen" size="medium"><NavLink to="/home">Trang chủ</NavLink></Button>
+          <Button type="textgreen" size="medium"><NavLink to="/roadmap">Lộ trình</NavLink></Button>
+
+          {/* Đề thi có dropdown */}
+          <div className="dropdown">
+            <Button
+              type="textgreen"
+              size="medium"
+              onClick={() => setOpenExam(!openExam)}
+            >
+              Đề thi
+            </Button>
+            {openExam && (
+              <div className="dropdown-menu">
+                <Button type="textgreen" size="medium"><NavLink to="/practiceExam">Thi thử</NavLink></Button>
+                <Button type="textgreen" size="medium"><NavLink to="/RealExam">Thi Thật</NavLink></Button>
+              </div>
+            )}
+          </div>
+
+          <Button type="textgreen" size="medium"><NavLink to="/learner/news">Tin tức</NavLink></Button>
+          <Button type="textgreen" size="medium"><NavLink to="/culture">Văn hóa</NavLink></Button>
+
+          {/* User icon có dropdown */}
+          <div className="dropdown">
+            <Button
+              type="user-btn"
+              size="medium"
+              icon={<i className="bx bx-user"></i>}
+              onClick={() => setOpenUser(!openUser)}
+            />
+            {openUser && (
+              <div className="dropdown-menu">
+                <Button type="textgreen" size="medium"><NavLink to="/profile">Hồ sơ</NavLink></Button>
+                <Button type="textgreen" size="medium"><NavLink to="/update">Nâng cấp</NavLink></Button>
+                <Button type="textgreen" size="medium">Thoát</Button>
+              </div>
+            )}
+          </div>
+        </nav>
+      </header>
+      
+      {/* News Filter Bar - giữ lại các chức năng chọn ngày, thể loại, hiện tại, yêu thích, nguồn và xem video */}
+      <div style={{ paddingTop: '80px', paddingLeft: '20px', paddingRight: '20px', paddingBottom: '10px' }}>
+        <NewsFilterBar />
       </div>
-      <div className="w-[500px] relative">
-        <input 
-          type="text" 
-          placeholder="Tìm kiếm" 
-          className="w-full px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:border-green-500"
-        />
-        <button className="absolute right-3 top-1/2 -translate-y-1/2">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-gray-500">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-          </svg>
-        </button>
-      </div>
-    </div>
+    </>
   );
 };
 
 export default NewsHeader;
+
+

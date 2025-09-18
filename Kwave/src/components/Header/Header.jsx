@@ -37,7 +37,7 @@ const Header = () => {
           )}
         </div>
 
-        <Button type="textgreen" size="medium">Tin tức</Button>
+        <Button type="textgreen" size="medium"><NavLink to="/learner/news">Tin tức</NavLink></Button>
         <Button type="textgreen" size="medium"><NavLink to="/culture">Văn hóa</NavLink></Button>
 
         {/* User icon có dropdown */}
@@ -50,7 +50,7 @@ const Header = () => {
           />
           {openUser && (
             <div className="dropdown-menu">
-              <Button type="textgreen" size="medium">Hồ sơ</Button>
+              <Button type="textgreen" size="medium"><NavLink to="/profile">Hồ sơ</NavLink></Button>
               <Button type="textgreen" size="medium"><NavLink to="/update">Nâng cấp</NavLink></Button>
               <Button type="textgreen" size="medium">Thoát</Button>
             </div>

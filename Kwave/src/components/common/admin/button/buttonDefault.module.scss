@@ -1,0 +1,47 @@
+.loginButton {
+    width: 100%;
+    padding: 16px 24px;
+    background: linear-gradient(100deg, #0C6FFF 40%, #1b4ec5 80%, #0832b2 100%);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+
+    &:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+    }
+
+    &:active:not(:disabled) {
+        transform: translateY(0);
+    }
+
+    &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
+    i {
+        font-size: 20px;
+
+    }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+    .loginButton {
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+
+}

@@ -1,0 +1,12 @@
+.lesson {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+    .lesson {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }   
+}

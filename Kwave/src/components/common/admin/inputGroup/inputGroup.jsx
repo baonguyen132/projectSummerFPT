@@ -63,12 +63,12 @@ function InputGroup({
               {label}
             </label>
             <textarea
-              id="address"
-              name="address"
+              id={name}
+              name={name}
               className={styles.formTextarea}
-              placeholder="Nhập địa chỉ đầy đủ..."
+              placeholder={`Enter your ${name}`}
               rows="3"
-              value={formData.address || ""}
+              value={formData[name] }
               onChange={handleChange}
               required
             ></textarea>
@@ -102,10 +102,10 @@ function InputGroup({
                 {label}
               </label>
               <select
-                id="role"
-                name="role"
+                id={name}
+                name={name}
                 className={styles.formSelect}
-                value={formData.role || ""}
+                value={formData[name]}
                 onChange={handleChange}
                 required
               >
@@ -124,10 +124,10 @@ function InputGroup({
               {label}
             </label>
             <select
-              id="role"
-              name="role"
+              id={name}
+              name={name}
               className={styles.formSelect}
-              value={formData.role || ""}
+              value={formData[name] }
               onChange={handleChange}
               required
             >

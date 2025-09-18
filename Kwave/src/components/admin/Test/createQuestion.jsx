@@ -10,7 +10,7 @@ function CreateQuestion({ formData, handleInputChange }) {
         <InputGroup
           formData={formData}
           handleChange={handleInputChange}
-          name="category"
+          name="type"
           icon="bxr  bx-tabs"
           type="select"
           options={[
@@ -25,7 +25,7 @@ function CreateQuestion({ formData, handleInputChange }) {
         <InputGroup
           formData={formData}
           handleChange={handleInputChange}
-          name="score"
+          name="point"
           icon="bx bx-star"
           type="number"
           label="Điểm số"
@@ -114,7 +114,7 @@ function CreateQuestion({ formData, handleInputChange }) {
       <InputGroup
         formData={formData}
         handleChange={handleInputChange}
-        name="explanation"
+        name="solution"
         icon="bxr  bx-light-bulb-on"
         type="textarea"
         label="Lời giải"

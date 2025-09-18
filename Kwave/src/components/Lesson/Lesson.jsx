@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../common/Button";
+import VocabularyPage from "../Vocabulary/VocabularyPage"; 
+import Grammar from "../Grammar/Grammar"; 
 import "../Lesson/Lesson.css";
+import grammarList from "../../data/Grammar.js";
 
 const Lesson = ({ step }) => {
-  // trạng thái theo step
+  const [activeTab, setActiveTab] = useState(null); // tab đang chọn
+
   const progressByStep = {
-    0: ["completed","completed","completed","completed","completed","completed"], // Bài 1 học hết
-    1: ["completed","in-progress","locked","locked","locked","locked"], // Bài 2 học tới ngữ pháp
-    2: ["locked","locked","locked","locked","locked","locked"], // Bài 3 chưa học
-    3: ["locked","locked","locked","locked","locked","locked"], // Bài 4
-    4: ["locked","locked","locked","locked","locked","locked"], // Bài 5
+    0: ["completed","completed","completed","completed","completed","completed"], 
+    1: ["completed","in-progress","locked","locked","locked","locked"], 
+    2: ["locked","locked","locked","locked","locked","locked"], 
+    3: ["locked","locked","locked","locked","locked","locked"], 
+    4: ["locked","locked","locked","locked","locked","locked"], 
   };
 
-  // Nếu step > 5 thì bị khóa -> không mở Lesson
   if (step >= 6) {
     return (
       <div className="lesson-locked">
@@ -34,26 +37,54 @@ const Lesson = ({ step }) => {
 
   return (
     <div className="lesson">
-      {lessons.map((item, index) => (
-        <Button
-          key={item.key}
-          type="card"
-          layout={progress[index] === "locked" ? "horizontal-off" : "horizontal-on"}
-          className={`btn nd-${item.key} ${progress[index]}`}
-          icon={item.icon}
-        >
-          {item.label.split("\n").map((line, i) => (
-            <React.Fragment key={i}>
-              {line}
-              <br />
-            </React.Fragment>
-          ))}
+      {/* danh sách card */}
+      <div className="lesson-cards">
+        {lessons.map((item, index) => {
+          const locked = progress[index] === "locked";
 
-          {progress[index] === "completed" && <span className="status done"></span>}
-          {progress[index] === "in-progress" && <span className="status learning"></span>}
-          {progress[index] === "locked" && <span className="status lock"></span>}
-        </Button>
-      ))}
+          return (
+            <Button
+              key={item.key}
+              type="card"
+              layout={locked ? "horizontal-off" : "horizontal-on"}
+              className={`btn nd-${item.key} ${progress[index]}`}
+              icon={item.icon}
+              onClick={() => !locked && setActiveTab(item.key)} // chỉ cho click khi ko bị khóa
+            >
+              {item.label.split("\n").map((line, i) => (
+                <React.Fragment key={i}>
+                  {line}
+                  <br />
+                </React.Fragment>
+              ))}
+              {progress[index] === "completed" && <span className="status done"></span>}
+              {progress[index] === "in-progress" && <span className="status learning"></span>}
+              {progress[index] === "locked" && <span className="status lock"></span>}
+            </Button>
+          );
+        })}
+      </div>
+
+      {/* hiển thị nội dung tab được chọn */}
+      <div className="lesson-content">
+        {activeTab === "tuvung" && <VocabularyPage />}
+
+        {activeTab === "nguphap" && (
+          <div className="grammar-list">
+            {grammarList.map((item) => (
+              <Grammar key={item.id} grammarData={item} />
+            ))}
+          </div>
+        )}
+
+        {activeTab === "doc" && <div>📖 Trang Luyện Đọc</div>}
+
+        {activeTab === "viet" && <div>✍️ Trang Luyện Viết</div>}
+
+        {activeTab === "nghe" && <div>🎧 Trang Luyện Nghe</div>}
+        
+        {activeTab === "noi" && <div>🗣️ Trang Luyện Nói</div>}
+      </div>
     </div>
   );
 };

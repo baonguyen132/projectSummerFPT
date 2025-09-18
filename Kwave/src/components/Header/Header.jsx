@@ -31,8 +31,8 @@ const Header = () => {
           </Button>
           {openExam && (
             <div className="dropdown-menu">
-              <Button type="textgreen" size="medium">Thi thử</Button>
-              <Button type="textgreen" size="medium">Thi thật</Button>
+              <Button type="textgreen" size="medium"><NavLink to="/practiceExam">Thi thử</NavLink></Button>
+              <Button type="textgreen" size="medium"><NavLink to="/RealExam">Thi Thật</NavLink></Button>
             </div>
           )}
         </div>

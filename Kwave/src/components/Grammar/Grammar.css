@@ -11,15 +11,9 @@
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  width: calc(33.333% - 20px); /* đúng 1/3 chiều ngang */
-  min-width: 280px;
   box-sizing: border-box;
   border: 2px solid #b5b5b548;
-;
-
 }
-
-
 .grammar-name {
   display: flex;
   justify-content: space-around;
@@ -27,7 +21,7 @@
   border-bottom: 1px solid #b6b6b6;
   margin-bottom: 10px;
 }
-.grammar-name > h2 {
+.grammar-name > h3 {
   color: #808080;
 }
 

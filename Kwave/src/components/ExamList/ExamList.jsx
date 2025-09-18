@@ -1,21 +1,31 @@
-import React from 'react'
-import Button from '../common/Button'
-import './ExamList.css'
+import React from "react";
+import Button from "../common/Button";
+import "./ExamList.css";
 
-const ExamList = () => {
+const examData = {
+  "TOPIK I": { real: 4, total: 6 },   // 4 đề thật → trắng, còn lại → xám
+  "TOPIK II": { real: 3, total: 5 },
+  ESP: { real: 2, total: 6 }
+};
+
+const ExamList = ({ examType }) => {
+  const config = examData[examType] || { real: 0, total: 0 };
+  const list = Array.from({ length: config.total }, (_, i) => `Đề ${i + 1}`);
+
   return (
-    <div className='examlist'>
-        <Button className='list-1' type="white" size="large">Đề 1</Button>
-        <Button className='list-2' type="white" size="large">Đề 2</Button>
-        <Button className='list-3' type="white" size="large">Đề 3</Button>
-        <Button className='list-4' type="grey" size="large">Đề 4</Button>
-        <Button className='list-5' type="grey" size="large">Đề 5</Button>
-        <Button className='list-6' type="grey" size="large">Đề 6</Button>
-        <Button className='list-7' type="grey" size="large">Đề 7</Button>
-        <Button className='list-8' type="grey" size="large">Đề 8</Button>
-        <Button className='list-9' type="grey" size="large">Đề 9</Button>
+    <div className="examlist">
+      {list.map((exam, idx) => (
+        <Button
+          key={idx}
+          className={`list-${idx + 1}`}
+          type={idx < config.real ? "white" : "grey"}  // chọn màu theo index
+          size="large"
+        >
+          {exam}
+        </Button>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default ExamList
+export default ExamList;

@@ -6,6 +6,8 @@ import Culture from "./pages/Culture/Culture";
 import Update from "./pages/Update/Update";
 import Home from "./pages/Home/Home";
 import Roadmap from "./pages/Roadmap/Roadmap";
+import PracticeExam from "./pages/PracticeExam/PracticeExam";
+import RealExam from "./pages/RealExam/RealExam";
 import MainLayout from "./layouts/MainLayout";
 
 const router = createBrowserRouter([
@@ -22,8 +24,7 @@ const router = createBrowserRouter([
       path: "/home",
       element: <Home/>,
       index: true   
-
-    },
+      },
       {
         path: "/roadmap",
         element: <>
@@ -38,32 +39,32 @@ const router = createBrowserRouter([
         path: "/update",
         element: <Update/>,
       },
+      {
+        path: "/practiceExam",
+        element: <PracticeExam/>,
+      },
+        {
+        path: "/realExam",
+        element: <RealExam/>,
+      },
+
+
     ]
   },
   
-  {
-    path: "/culture",
-    element: <Culture></Culture>,
-  },
-    {
-    path: "/price",
-    element: <PriceModal></PriceModal>,
-  },
+  // {
+  //   path: "/culture",
+  //   element: <Culture></Culture>,
+  // },
+  //   {
+  //   path: "/price",
+  //   element: <PriceModal></PriceModal>,
+  // },
 
-   {
-    path: "/buttons",
-    element: <ButtonDemo />,
-    children:[
-      {
-        path: "page1",
-        element: <h1>Home Page1</h1>,
-      },
-      {
-        path: "page2",
-        element: <h1>Home Page2</h1>,
-      },
-    ]
-  },
+  // {
+  //   path: "/buttons",
+  //   element: <ButtonDemo />,
+  // },
   {
     path: "*",
     element: (

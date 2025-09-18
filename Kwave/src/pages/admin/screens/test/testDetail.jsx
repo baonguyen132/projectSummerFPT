@@ -1,138 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./testDetail.module.scss";
 import DialogCustome from "../../../../components/common/admin/Dialog/DialogCustome";
 import CreateQuestion from "../../../../components/admin/Test/createQuestion";
+import {
+  handleCreateQuestion,
+  handleDeleteQuestion,
+} from "../../../../services/admin/questionService";
+import Cookies from "js-cookie";
+import useFetchQuestion from "../../../../hooks/useQuestion";
 
 function TestDetail({ id }) {
   const testId = id;
+  const [data, setData] = useState([]);
 
-  const [questions, setQuestions] = useState([
-    {
-      id: 1,
-      content: "한국의 수도는 어디입니까?",
-      optionA: "서울",
-      optionB: "부산",
-      optionC: "인천",
-      optionD: "대구",
-      correctAnswer: "A",
-      score: 1,
-      category: "읽기", // Thêm thể loại
-      explanation: "한국의 수도는 서울입니다.",
-    },
-    {
-      id: 2,
-      content: "한글을 만든 왕은 누구입니까?",
-      optionA: "세종대왕",
-      optionB: "태조 이성계",
-      optionC: "정조",
-      optionD: "광개토대왕",
-      correctAnswer: "A",
-      score: 1,
-      category: "듣기", // Thêm thể loại
-      explanation:
-        "세종대왕이 훈민정음을 창제하여 오늘날 한글의 기초가 되었습니다.",
-    },
-    {
-      id: 3,
-      content: "한국의 전통 의상은 무엇입니까?",
-      optionA: "기모노",
-      optionB: "한복",
-      optionC: "치파오",
-      optionD: "샤리",
-      correctAnswer: "B",
-      score: 1,
-      category: "읽기", // Thêm thể loại
-      explanation: "한복은 한국의 전통 의상입니다.",
-    },
-    {
-      id: 4,
-      content: "한국에서 가장 높은 산은 무엇입니까?",
-      optionA: "한라산",
-      optionB: "지리산",
-      optionC: "설악산",
-      optionD: "태백산",
-      correctAnswer: "A",
-      score: 1,
-      category: "듣기", // Thêm thể loại
-      explanation: "한라산은 제주도에 있으며 한국에서 가장 높은 산입니다.",
-    },
-    {
-      id: 5,
-      content: "한국의 전통 음식 김치는 주로 무엇으로 만듭니까?",
-      optionA: "배추",
-      optionB: "감자",
-      optionC: "콩",
-      optionD: "옥수수",
-      correctAnswer: "A",
-      score: 1,
-      category: "읽기", // Thêm thể loại
-      explanation: "김치는 주로 배추나 무로 만듭니다.",
-    },
-    {
-      id: 6,
-      content: "한국의 화폐 단위는 무엇입니까?",
-      optionA: "엔",
-      optionB: "위안",
-      optionC: "원",
-      optionD: "달러",
-      correctAnswer: "C",
-      score: 1,
-      category: "듣기", // Thêm thể loại
-      explanation: "한국의 화폐 단위는 원(₩)입니다.",
-    },
-    {
-      id: 7,
-      content: "다음 중 한국의 대표 명절은 무엇입니까?",
-      optionA: "추석",
-      optionB: "설날",
-      optionC: "중추절",
-      optionD: "크리스마스",
-      correctAnswer: "A",
-      score: 1,
-      category: "읽기", // Thêm thể loại
-      explanation: "추석은 한국의 대표적인 명절로, 한가위라고도 부릅니다.",
-    },
-    {
-      id: 8,
-      content: "한국에서 가장 많이 쓰이는 인사말은 무엇입니까?",
-      optionA: "안녕하세요",
-      optionB: "こんにちは",
-      optionC: "你好",
-      optionD: "Hello",
-      correctAnswer: "A",
-      score: 1,
-      category: "듣기", // Thêm thể loại
-      explanation: "'안녕하세요'는 한국에서 가장 일반적인 인사말입니다.",
-    },
-    {
-      id: 9,
-      content: "한국의 전통 놀이 중 윷을 던지는 놀이는 무엇입니까?",
-      optionA: "윷놀이",
-      optionB: "제기차기",
-      optionC: "투호",
-      optionD: "씨름",
-      correctAnswer: "A",
-      score: 1,
-      category: "읽기", // Thêm thể loại
-      explanation: "윷놀이에서는 윷을 던져 말판에서 말을 이동시킵니다.",
-    },
-    {
-      id: 10,
-      content: "한국의 국기는 무엇입니까?",
-      optionA: "일장기",
-      optionB: "성조기",
-      optionC: "태극기",
-      optionD: "오성홍기",
-      correctAnswer: "C",
-      score: 1,
-      category: "듣기", // Thêm thể loại
-      explanation: "태극기는 한국의 국기입니다.",
-    },
-  ]);
+  const { questions, loading, error } = useFetchQuestion({
+    accessToken: Cookies.get("access_token"),
+    dependencies: [],
+    idTest: testId,
+  });
 
-  const handleDelete = (questionId) => {
+  useEffect(() => {
+    if (questions) {
+      setData(questions);
+    }
+  }, [questions]);
+
+  const handleDelete = async (questionId) => {
     if (window.confirm("Bạn có chắc chắn muốn xóa câu hỏi này?")) {
-      setQuestions(questions.filter((q) => q.id !== questionId));
+      await handleDeleteQuestion({
+        id: questionId,
+        accessToken: Cookies.get("access_token"),
+        handleSuccess: ({ message }) => {
+          alert(message);
+          setData(data.filter((q) => q[0] !== questionId));
+        },
+      });
     }
   };
 
@@ -142,17 +44,17 @@ function TestDetail({ id }) {
   };
 
   const getTotalScore = () => {
-    return questions.reduce((total, q) => total + q.score, 0);
+    return questions.reduce((total, q) => total + q[3], 0);
   };
 
   // Thống kê theo thể loại
   const getCategoryStats = () => {
-    const listening = questions.filter((q) => q.category === "듣기").length;
-    const reading = questions.filter((q) => q.category === "읽기").length;
+    const listening = questions.filter((q) => q[2] === "듣기").length;
+    const reading = questions.filter((q) => q[2] === "읽기").length;
     return { listening, reading };
   };
 
-  const categoryStats = getCategoryStats();
+  const typeStats = getCategoryStats();
 
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [questionFormData, setQuestionFormData] = useState({
@@ -162,9 +64,9 @@ function TestDetail({ id }) {
     optionC: "",
     optionD: "",
     correctAnswer: "",
-    score: 1,
-    category: "",
-    explanation: "",
+    point: 1,
+    type: "",
+    solution: "",
   });
 
   const handleQuestionInputChange = (e) => {
@@ -175,17 +77,67 @@ function TestDetail({ id }) {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form data:", formData);
-    // Handle form submission here
+
+    try {
+      await handleCreateQuestion({
+        id_test: testId,
+        question: questionFormData.content,
+        point: questionFormData.point,
+        optionA: questionFormData.optionA,
+        optionB: questionFormData.optionB,
+        optionC: questionFormData.optionC,
+        optionD: questionFormData.optionD,
+        correctAnswer: questionFormData.correctAnswer,
+        solution: questionFormData.solution,
+        type: questionFormData.type,
+        accessToken: Cookies.get("access_token"),
+        handleSuccess: ({ dataQuestions, message }) => {
+          console.log(message);
+          // Optionally, you can reset the form or show a success message
+
+          setData((prevData) => [
+            ...prevData,
+            [
+              questionFormData.id,
+              questionFormData.question,
+              questionFormData.type,
+              questionFormData.point,
+              questionFormData.optionA,
+              questionFormData.optionB,
+              questionFormData.optionC,
+              questionFormData.optionD,
+              questionFormData.correctAnswer,
+              questionFormData.solution,
+              dataQuestions.created_at,
+              dataQuestions.updated_at,
+              questionFormData.id,
+            ],
+          ]);
+          setIsDialogOpen(false);
+          setQuestionFormData({
+            content: "",
+            optionA: "",
+            optionB: "",
+            optionC: "",
+            optionD: "",
+            correctAnswer: "",
+            point: 1,
+            type: "",
+            solution: "",
+          });
+        },
+      });
+    } catch (error) {
+      console.error("Error creating question:", error);
+    }
+
     onClose();
   };
-  
 
   const closeDialog = () => {
     setIsDialogOpen(false);
-    
   };
 
   return (
@@ -205,11 +157,11 @@ function TestDetail({ id }) {
             </span>
             <span className={styles.statItem}>
               <i className="bx bx-headphone"></i>
-              Nghe: {categoryStats.listening}
+              Nghe: {typeStats.listening}
             </span>
             <span className={styles.statItem}>
               <i className="bx bx-book-open"></i>
-              Đọc: {categoryStats.reading}
+              Đọc: {typeStats.reading}
             </span>
           </div>
         </div>
@@ -238,72 +190,58 @@ function TestDetail({ id }) {
             </tr>
           </thead>
           <tbody>
-            {questions.map((question, index) => (
-              <tr key={question.id}>
+            {data.map((question, index) => (
+              <tr key={question[0]}>
                 <td className={styles.sttColumn}>{index + 1}</td>
-                <td className={styles.categoryColumn}>
+                <td className={styles.typeColumn}>
                   <span
-                    className={`${styles.categoryBadge} ${
-                      question.category === "듣기"
+                    className={`${styles.typeBadge} ${
+                      question[2] === "듣기"
                         ? styles.listeningBadge
                         : styles.readingBadge
                     }`}
                   >
                     <i
                       className={
-                        question.category === "듣기"
+                        question[2] === "듣기"
                           ? "bx bx-headphone"
                           : "bx bx-book-open"
                       }
                     ></i>
-                    {question.category === "듣기" ? "Nghe" : "Đọc"}
+                    {question[2] === "듣기" ? "Nghe" : "Đọc"}
                   </span>
                 </td>
                 <td className={styles.contentColumn}>
-                  <div className={styles.questionContent}>
-                    {question.content}
-                  </div>
+                  <div className={styles.questionContent}>{question[1]}</div>
                 </td>
                 <td className={styles.optionsColumn}>
                   <div className={styles.optionsList}>
                     <div className={styles.optionItem}>
                       <span className={styles.optionLabel}>A.</span>
-                      <span className={styles.optionText}>
-                        {question.optionA}
-                      </span>
+                      <span className={styles.optionText}>{question[4]}</span>
                     </div>
                     <div className={styles.optionItem}>
                       <span className={styles.optionLabel}>B.</span>
-                      <span className={styles.optionText}>
-                        {question.optionB}
-                      </span>
+                      <span className={styles.optionText}>{question[5]}</span>
                     </div>
                     <div className={styles.optionItem}>
                       <span className={styles.optionLabel}>C.</span>
-                      <span className={styles.optionText}>
-                        {question.optionC}
-                      </span>
+                      <span className={styles.optionText}>{question[6]}</span>
                     </div>
                     <div className={styles.optionItem}>
                       <span className={styles.optionLabel}>D.</span>
-                      <span className={styles.optionText}>
-                        {question.optionD}
-                      </span>
+                      <span className={styles.optionText}>{question[7]}</span>
                     </div>
                   </div>
                 </td>
                 <td className={styles.correctColumn}>
-                  <span className={styles.correctAnswer}>
-                    {question.correctAnswer}
-                  </span>
+                  <span className={styles.correctAnswer}>{question[8]}</span>
                 </td>
-                <td className={styles.scoreColumn}>
-                  <span className={styles.scoreValue}>{question.score}</span>
+                <td className={styles.pointColumn}>
+                  <span className={styles.pointValue}>{question[3]}</span>
                 </td>
-                <td className={styles.explanationColumn}>
-                  <div className={styles.explanationText}>
-                    {question.explanation}
-                  </div>
+                <td className={styles.solutionColumn}>
+                  <div className={styles.solutionText}>{question[9]}</div>
                 </td>
                 <td className={styles.actionColumn}>
                   <div className={styles.actionButtons}>
@@ -316,7 +254,7 @@ function TestDetail({ id }) {
                     </button>
                     <button
                       className={styles.deleteButton}
-                      onClick={() => handleDelete(question.id)}
+                      onClick={() => handleDelete(question[0])}
                       title="Xóa"
                     >
                       <i className="bx bx-trash"></i>

@@ -4,6 +4,7 @@ from flasgger import Swagger
 from flask_cors import CORS
 
 from auth import token_required
+from part_question_handle import question_bp
 from part_test_handle import test_bp
 from part_user_handle import user_bp
 
@@ -100,7 +101,7 @@ def home(data):
 # Đăng ký Blueprint người dùng
 app.register_blueprint(user_bp)
 app.register_blueprint(test_bp)
-
+app.register_blueprint(question_bp)
 if __name__ == "__main__":
 
     app.run(host="0.0.0.0", port=5000, debug=True)

@@ -109,10 +109,9 @@ function Test() {
             key={item[0]}
             item={item}
             handleViewDetails={() => {
-              setIsOpenDetail(item.id);
+              setIsOpenDetail(item[0]);
             }}
             handleDelete={async (id) => {
-              console.log(id);
               await handleDeleteTest({
                 id,
                 accessToken: Cookies.get("access_token"),

@@ -208,8 +208,6 @@ def delete_test(current_user):
     data = request.get_json() or {}
     test_id = data.get("id")
 
-
-
     # Xóa bài kiểm tra
     importData(
         sql="DELETE FROM `tests` WHERE `id` = %s",

@@ -1,7 +1,7 @@
 import React, { use, useMemo } from "react";
 import styles from "./navigation.module.scss";
 import { NavLink, useLocation } from "react-router-dom";
-import { handleLogout } from "../../services/admin/loginService";
+import { handleLogout } from "../../../services/admin/loginService";
 
 function Navigation({user}) {
   const menuItems = [

@@ -17,6 +17,8 @@ import LearnerMainLayout from "./layouts/learner/MainLayout";
 import LearnerHomePage from "./pages/learner/LearnerHomePage";
 import LearnerNews from "./pages/learner/LearnerNews";
 import LearnerNewsDetails from "./pages/learner/LearnerNewsDetails";
+import LearnerVideo from "./pages/learner/LearnerVideo";
+import LearnerVideoDetails from "./pages/learner/LearnerVideoDetails";
 
 const router = createBrowserRouter([
   // Auth route
@@ -73,6 +75,8 @@ const router = createBrowserRouter([
           { index: true, element: <LearnerHomePage/> },
           { path: 'news', element: <LearnerNews/> },
           { path: 'news/:id', element: <LearnerNewsDetails/> },
+          { path: 'video', element: <LearnerVideo/> },
+          { path: 'video/learn/:videoId', element: <LearnerVideoDetails/> },
         ],
       },
     ],

@@ -1,0 +1,36 @@
+.category-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;   /* Cho phép trượt ngang */
+  white-space: nowrap; /* Không xuống hàng */
+  padding: 0 20px;
+  scrollbar-width: thin; /* Firefox */
+}
+
+.category-slider::-webkit-scrollbar {
+  height: 6px;
+}
+.category-slider::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.category-item {
+  flex: 0 0 auto;      /* Giữ kích thước, không co giãn */
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.category-item.active {
+  background: #FFD700;
+  font-weight: bold;
+}
+
+.category-item:hover {
+  background: #bbb;
+}

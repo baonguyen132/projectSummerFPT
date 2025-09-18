@@ -1,0 +1,54 @@
+.price-time-container {
+  background: #c0ccd4b0; /* nền xanh nhạt giống ảnh */
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 100;
+  width: 100%;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+}
+
+.price-time {
+  font-size: 32px;
+  font-weight: bold;
+  color: #1f4037;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.price-time span {
+  background: #fff;
+  padding: 5px 12px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.price-time-note {
+  color: red;
+  margin: 8px 0;
+  font-size: 18px;
+}
+
+.price-time-btn {
+  background: #ff4500;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.price-time-btn:hover {
+  background: #e63e00;
+}
+.price-time-container>Button a{
+  color: #fff;
+}

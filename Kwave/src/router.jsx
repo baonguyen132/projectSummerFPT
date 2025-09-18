@@ -10,7 +10,22 @@ import PracticeExam from "./pages/PracticeExam/PracticeExam";
 import RealExam from "./pages/RealExam/RealExam";
 import MainLayout from "./layouts/MainLayout";
 
+// Import learner components
+import App from "./App";
+import NotFoundPage from "./pages/NotFoundPage";
+import LearnerMainLayout from "./layouts/learner/MainLayout";
+import LearnerHomePage from "./pages/learner/LearnerHomePage";
+import LearnerNews from "./pages/learner/LearnerNews";
+import LearnerNewsDetails from "./pages/learner/LearnerNewsDetails";
+
 const router = createBrowserRouter([
+  // Auth route
+  {
+    path: "/auth",
+    element: <App/>,
+  },
+
+  // Main application routes
   {
     path: "/",
     element: <MainLayout/>,
@@ -21,15 +36,12 @@ const router = createBrowserRouter([
         index: true   
       },
       {
-      path: "/home",
-      element: <Home/>,
-      index: true   
+        path: "/home",
+        element: <Home/>,
       },
       {
         path: "/roadmap",
-        element: <>
-          <Roadmap />
-        </>
+        element: <Roadmap />
       },
       {
         path: "/culture",
@@ -43,43 +55,34 @@ const router = createBrowserRouter([
         path: "/practiceExam",
         element: <PracticeExam/>,
       },
-        {
+      {
         path: "/realExam",
         element: <RealExam/>,
       },
-
-
     ]
   },
-  
-  // {
-  //   path: "/culture",
-  //   element: <Culture></Culture>,
-  // },
-  //   {
-  //   path: "/price",
-  //   element: <PriceModal></PriceModal>,
-  // },
 
-  // {
-  //   path: "/buttons",
-  //   element: <ButtonDemo />,
-  // },
+  // Learner routes
+  {
+    path: '/learner',
+    children: [
+      {
+        path: '',
+        element: <LearnerMainLayout/>,
+        children: [
+          { index: true, element: <LearnerHomePage/> },
+          { path: 'news', element: <LearnerNews/> },
+          { path: 'news/:id', element: <LearnerNewsDetails/> },
+        ],
+      },
+    ],
+  },
+
+  // 404 route
   {
     path: "*",
-    element: (
-      <center>
-        <h1>404</h1>
-        <br />
-        <h1>Không tồn tại trang này</h1>
-      </center>
-    ),
+    element: <NotFoundPage/>
   }
 ]);
 
-function RouterCustome() {
-    return <RouterProvider router={router} />;
-}
-
-export default RouterCustome;
-
+export default router;

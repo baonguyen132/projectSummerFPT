@@ -55,9 +55,12 @@ const NewsContent = () => {
     const updatePopupPosition = () => {
       if (currentRange) {
         const rect = currentRange.getBoundingClientRect()
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
+        
         setPopupPosition({
-          x: rect.left + rect.width / 2,  
-          y: rect.bottom + window.scrollY - 10
+          x: rect.left + scrollLeft + (rect.width / 2),
+          y: rect.bottom + scrollTop - 200  // Giảm khoảng cách để gần hơn với text
         })
       }
     }
@@ -77,9 +80,12 @@ const NewsContent = () => {
       }
     }
 
-    const handleMouseDown = () => {
-      setShowPopup(false)
-      currentRange = null
+    const handleMouseDown = (e) => {
+      // Chỉ đóng popup nếu click bên ngoài popup
+      if (!e.target.closest('.word-popup')) {
+        setShowPopup(false)
+        currentRange = null
+      }
     }
 
     const handleScroll = () => {
@@ -146,9 +152,9 @@ const NewsContent = () => {
       {/* Word Lookup Popup */}
       {showPopup && wordInfo && (
         <div 
-          className="absolute z-50 bg-gray-800 text-white rounded-lg shadow-xl p-4 min-w-80"
+          className="word-popup absolute z-50 bg-gray-800 text-white rounded-lg shadow-xl p-4 w-80"
           style={{
-            left: `${popupPosition.x}px`,
+            left: `${Math.max(10, popupPosition.x - 160)}px`, // Căn giữa popup (160 = w-80/2)
             top: `${popupPosition.y}px`
           }}
         >

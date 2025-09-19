@@ -42,16 +42,7 @@ const Lesson = ({ step }) => {
     setAnswers(newAnswers);
   };
 
-  if (step >= 6) {
-    return (
-      <div className="lesson-locked">
-        🔒 Bài này bị khóa. Nâng cấp để mở khóa bài học!
-      </div>
-    );
-  }
-
-
-  // Điều khiển prev/next cho ImageNavigator
+    // Điều khiển prev/next cho ImageNavigator
   const handlePrev = () => {
     setListenIndex((prev) => (prev > 0 ? prev - 1 : listeningData.length - 1));
   };
@@ -59,6 +50,14 @@ const Lesson = ({ step }) => {
     setListenIndex((prev) => (prev < listeningData.length - 1 ? prev + 1 : 0));
   };
 
+
+  if (step >= 6) {
+    return (
+      <div className="lesson-locked">
+        🔒 Bài này bị khóa. Nâng cấp để mở khóa bài học!
+      </div>
+    );
+  }
 
   // Hàm handle click tab
   const handleClickTab = (key, locked) => {

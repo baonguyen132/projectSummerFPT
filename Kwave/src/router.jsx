@@ -1,7 +1,16 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AdminPage from "./pages/admin/admin";
+import Login from "./pages/admin/Login/login";
+import Dashboard from "./pages/admin/screens/dashboard/dashboard";
+import User from "./pages/admin/screens/user/user";
+import Test from "./pages/admin/screens/test/test";
+import Lesson from "./pages/admin/screens/lesson/lesson";
 import ButtonDemo from "./pages/ButtonDemo";
 import VocabularyPage from "./components/Vocabulary/VocabularyPage";
 import PriceModal from "./components/Price/PriceModal";
+import Exam from "./components/Exam/Exam";
+import ExamType from "./components/ExamType/ExamType";
+import Result from "./components/Result/Result";
 import Culture from "./pages/Culture/Culture";
 import Update from "./pages/Update/Update";
 import Home from "./pages/Home/Home";
@@ -11,7 +20,6 @@ import RealExam from "./pages/RealExam/RealExam";
 import MainLayout from "./layouts/MainLayout";
 
 // Import learner components
-import App from "./App";
 import NotFoundPage from "./pages/NotFoundPage";
 import LearnerMainLayout from "./layouts/learner/MainLayout";
 import LearnerHomePage from "./pages/learner/LearnerHomePage";
@@ -22,25 +30,66 @@ import LearnerVideoDetails from "./pages/learner/LearnerVideoDetails";
 import UserProfile from "./pages/UserProfile/UserProfile";
 
 const router = createBrowserRouter([
-  // Auth route
   {
-    path: "/auth",
-    element: <App/>,
+    path: "/dashboard/login",
+    element: <Login />,
   },
-
-  // Main application routes
+  {
+    path: "/dashboard",
+    
+    element: <AdminPage />,
+    children: [
+      {
+        index: true,
+        element: <Dashboard />,
+      },
+      {
+        path: "user",
+        element: <User />,
+      },
+      {
+        path: "test",
+        element: <Test />,
+      },
+      {
+        path: "lesson",
+        element: <Lesson />,
+      },
+      {
+        path: "culture",
+        element: <h1>Culture Page</h1>,
+      },
+      {
+        path: "news",
+        element: <h1>News Page</h1>,
+      },
+      {
+        path: "finance",
+        element: <h1>Finance Page</h1>,
+      },
+      {
+        path: "profile",
+        element: <h1>Profile Page</h1>,
+      },
+      {
+        path: "logout",
+        element: <h1>Logout Page</h1>,
+      },
+    ],
+  },
   {
     path: "/",
-    element: <MainLayout/>,
+    element: <MainLayout />,
     children: [
       {
         path: "/",
-        element: <Home/>,
-        index: true   
+        element: <Home />,
+        index: true,
       },
       {
         path: "/home",
-        element: <Home/>,
+        element: <Home />,
+        index: true,
       },
       {
         path: "/roadmap",
@@ -48,28 +97,37 @@ const router = createBrowserRouter([
       },
       {
         path: "/culture",
-        element: <Culture/>,
+        element: <Culture />,
       },
       {
         path: "/update",
-        element: <Update/>,
+        element: <Update />,
       },
       {
         path: "/practiceExam",
-        element: <PracticeExam/>,
+        element: <PracticeExam />,
       },
+      {
+        path: "/examType",
+        element: <ExamType />,
+      },
+      
       {
         path: "/realExam",
-        element: <RealExam/>,
+        element: <RealExam />,
       },
       {
-        path: "/profile",
-        element: <UserProfile/>,
+        path: "exam/:examType/:examId",
+        element: <Exam />,
       },
-    ]
+      {
+        path: "/result",
+        element: <Result />,
+      },
+      {
+    path: "/profile",
+    element: <UserProfile/>,
   },
-
-  // Learner routes
   {
     path: '/learner',
     children: [
@@ -86,6 +144,14 @@ const router = createBrowserRouter([
       },
     ],
   },
+    ],
+  },
+
+  
+    
+
+  // Learner routes
+  
 
   // 404 route
   {
@@ -94,4 +160,8 @@ const router = createBrowserRouter([
   }
 ]);
 
-export default router;
+function RouterCustome() {
+  return <RouterProvider router={router} />;
+}
+
+export default RouterCustome;

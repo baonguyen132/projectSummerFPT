@@ -79,6 +79,8 @@
   border-radius: 8px;
   margin-top: 5px;
   z-index: 99;
+  width: 150px;
+  text-align: center;
 }
 
 .dropdown-item {
@@ -89,4 +91,30 @@
 
 .dropdown-item:hover {
   background: #ffe6cc;
+}
+/* 📱 Responsive */
+@media (max-width: 1024px) {
+  .roadmap {
+    max-width: 900px;
+    aspect-ratio: 4/3;
+  }
+  .roadmap .btn {
+    min-width: 90px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .roadmap {
+    max-width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 10px;
+  }
+  .roadmap .btn {
+    min-width: 80px;
+    font-size: 11px;
+  }
+  .center-btn {
+    width: 100px;
+  }
 }

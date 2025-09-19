@@ -1,0 +1,283 @@
+// CreateDialog.module.scss
+.dialogOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.dialogContainer {
+  background: white;
+  border-radius: 20px;
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow: hidden;
+  animation: slideUp 0.4s ease-out;
+  position: relative;
+}
+
+.dialogHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  background: linear-gradient(135deg, #0C6FFF 0%, #1b4ec5 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    opacity: 0.3;
+  }
+}
+
+.headerIcon {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+
+  i {
+    font-size: 24px;
+    color: white;
+  }
+}
+
+.headerText {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.dialogTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  color: white;
+}
+
+.dialogSubtitle {
+  font-size: 0.9rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.closeButton {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+
+  i {
+    font-size: 18px;
+    color: white;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+  }
+}
+
+.dialogBody {
+  padding: 30px;
+  max-height: 60vh;
+  overflow-y: auto;
+
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+
+  &::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, and Opera */
+  }
+
+  .createForm {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .formActions {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+      justify-content: flex-end;
+      padding-top: 20px;
+      border-top: 1px solid #e2e8f0;
+
+      .cancelButton,
+      .saveButton {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        border: none;
+        border-radius: 12px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: inherit;
+        position: relative;
+        overflow: hidden;
+
+        i {
+          font-size: 18px;
+        }
+
+        &:active {
+          transform: scale(0.98);
+        }
+      }
+
+      .cancelButton {
+        background: #f7fafc;
+        color: #4a5568;
+        border: 2px solid #e2e8f0;
+
+        &:hover {
+          background: #edf2f7;
+          border-color: #cbd5e0;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+      }
+
+      .saveButton {
+        background: linear-gradient(135deg, #0C6FFF 0%, #1b4ec5 100%);
+        color: white;
+        box-shadow: 0 4px 14px rgba(12, 111, 255, 0.3);
+        border: 2px solid transparent;
+
+        &:hover {
+          background: linear-gradient(135deg, #1b4ec5 0%, #0832b2 100%);
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(12, 111, 255, 0.4);
+        }
+      }
+    }
+  }
+
+
+
+}
+
+
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+  .dialogContainer {
+    width: 95%;
+    margin: 20px;
+    border-radius: 16px;
+  }
+
+  .dialogHeader {
+    padding: 24px;
+  }
+
+  .dialogBody {
+    padding: 24px;
+
+    .formActions {
+      flex-direction: column;
+
+      .cancelButton,
+      .saveButton {
+        width: 100%;
+        justify-content: center;
+        padding: 16px 28px;
+      }
+    }
+  }
+
+  .dialogTitle {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dialogContainer {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    max-height: 100vh;
+  }
+
+  .dialogBody {
+    max-height: calc(100vh - 160px);
+    padding: 20px;
+
+    .createForm {
+      gap: 20px;
+    }
+  }
+
+  .dialogHeader {
+    padding: 20px;
+  }
+
+  .headerIcon {
+    width: 45px;
+    height: 45px;
+
+    i {
+      font-size: 20px;
+    }
+  }
+}

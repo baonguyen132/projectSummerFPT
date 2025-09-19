@@ -1,0 +1,30 @@
+services:
+  api:
+    build: ./flaskProject
+    container_name: flask_api
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./flaskProject:/app   # Mount code vào container để hot reload
+    environment:
+      FLASK_APP: app.py      
+      FLASK_ENV: development 
+      PYTHONPATH: /app
+      FLASK_DEBUG: "1"
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    
+  mysql:
+    build: ./mysql
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root      # 👈 Bắt buộc có
+      MYSQL_DATABASE: kwave
+      MYSQL_USER: appuser           # 👈 (Tùy chọn) user riêng cho app
+      MYSQL_PASSWORD: apppass
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql_data:/var/lib/mysql

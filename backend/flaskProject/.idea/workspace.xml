@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4afb2c64-2e2b-44ae-a736-be5a12d7e816" name="Changes" comment="" />
+    <list default="true" id="4afb2c64-2e2b-44ae-a736-be5a12d7e816" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Kwave/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Kwave/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

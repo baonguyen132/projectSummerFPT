@@ -19,6 +19,16 @@ import PracticeExam from "./pages/PracticeExam/PracticeExam";
 import RealExam from "./pages/RealExam/RealExam";
 import MainLayout from "./layouts/MainLayout";
 
+// Import learner components
+import NotFoundPage from "./pages/NotFoundPage";
+import LearnerMainLayout from "./layouts/learner/MainLayout";
+import LearnerHomePage from "./pages/learner/LearnerHomePage";
+import LearnerNews from "./pages/learner/LearnerNews";
+import LearnerNewsDetails from "./pages/learner/LearnerNewsDetails";
+import LearnerVideo from "./pages/learner/LearnerVideo";
+import LearnerVideoDetails from "./pages/learner/LearnerVideoDetails";
+import UserProfile from "./pages/UserProfile/UserProfile";
+
 const router = createBrowserRouter([
   {
     path: "/dashboard/login",
@@ -26,6 +36,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
+    
     element: <AdminPage />,
     children: [
       {
@@ -82,11 +93,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/roadmap",
-        element: (
-          <>
-            <Roadmap />
-          </>
-        ),
+        element: <Roadmap />
       },
       {
         path: "/culture",
@@ -104,6 +111,7 @@ const router = createBrowserRouter([
         path: "/examType",
         element: <ExamType />,
       },
+      
       {
         path: "/realExam",
         element: <RealExam />,
@@ -116,19 +124,35 @@ const router = createBrowserRouter([
         path: "/result",
         element: <Result />,
       },
+      {
+    path: "/profile",
+    element: <UserProfile/>,
+  },
+  {
+    path: '/learner',
+    children: [
+      {
+        path: '',
+        element: <LearnerMainLayout/>,
+        children: [
+          { index: true, element: <LearnerHomePage/> },
+          { path: 'news', element: <LearnerNews/> },
+          { path: 'news/:id', element: <LearnerNewsDetails/> },
+          { path: 'video', element: <LearnerVideo/> },
+          { path: 'video/learn/:videoId', element: <LearnerVideoDetails/> },
+        ],
+      },
+    ],
+  },
     ],
   },
 
+
+  // 404 route
   {
     path: "*",
-    element: (
-      <center>
-        <h1>404</h1>
-        <br />
-        <h1>Không tồn tại trang này</h1>
-      </center>
-    ),
-  },
+    element: <NotFoundPage/>
+  }
 ]);
 
 function RouterCustome() {

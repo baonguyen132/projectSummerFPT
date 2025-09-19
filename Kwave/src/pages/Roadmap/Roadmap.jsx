@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Lesson from "../../components/Lesson/Lesson";
 import RoadMap from "../../components/RoadMap/RoadMap";
+import UpgradeButton from "../../components/common/UpgradeButton";
 import './Roadmap.css'
 
 const Roadmap = () => {
@@ -20,6 +21,15 @@ const Roadmap = () => {
         <div className="lesson-container">
           <h2>{selectedStep.text}</h2>
           <Lesson step={selectedStep.step} />
+          
+          <div style={{ marginTop: '30px' }}>
+            <UpgradeButton
+              variant="default"
+              size="medium"
+              message="🚀 Mở khóa toàn bộ lộ trình học và bài tập nâng cao"
+              buttonText="Nâng cấp ngay"
+            />
+          </div>
         </div>
       </div>
   )

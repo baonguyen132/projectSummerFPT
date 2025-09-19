@@ -1,6 +1,6 @@
 import { createContext, useEffect, useReducer } from "react";
 import Cookies from "js-cookie";
-import loadDataMyInformation from "../services/admin/userService";
+import loadDataMyInformation from "../../services/admin/userService"
 
 export const UserContext = createContext();
 

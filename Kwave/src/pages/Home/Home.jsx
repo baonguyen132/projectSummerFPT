@@ -6,6 +6,7 @@ import EvaluateCard from '../../components/common/EvaluateCard';
 import ModalCulture from '../../components/common/ModalCulture';
 import PriceTime from '../../components/common/PriceTime';
 import PriceModal from '../../components/Price/PriceModal';
+import UpgradeButton from '../../components/common/UpgradeButton';
 import img1 from '../../asset/image/cheer/img16.png'; 
 import img2 from '../../asset/image/cheer/img17.png'; 
 import { NavLink } from "react-router-dom";
@@ -88,6 +89,16 @@ function Home() {
           icon={flowerIcon}
           title="Street food và seasonal food"
           subtitle="Từ mưu sinh đến lifestyle"
+        />
+      </div>
+
+      <div style={{ margin: '40px 0' }}>
+        <UpgradeButton
+          variant="premium"
+          size="large"
+          message="🌟 Mở khóa toàn bộ nội dung văn hóa và tính năng premium"
+          buttonText="Nâng cấp Premium"
+          className="mx-auto max-w-4xl"
         />
       </div>
 

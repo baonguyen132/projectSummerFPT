@@ -1,42 +1,44 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AdminPage from "./pages/admin/admin";
-import Login from "./pages/admin/Login/login";
-import Dashboard from "./pages/admin/screens/dashboard/dashboard";
-import User from "./pages/admin/screens/user/user";
-import Test from "./pages/admin/screens/test/test";
-import Lesson from "./pages/admin/screens/lesson/lesson";
-import ButtonDemo from "./pages/ButtonDemo";
-import VocabularyPage from "./components/Vocabulary/VocabularyPage";
-import PriceModal from "./components/Price/PriceModal";
-import Exam from "./components/Exam/Exam";
-import ExamType from "./components/ExamType/ExamType";
-import Result from "./components/Result/Result";
-import Culture from "./pages/Culture/Culture";
-import Update from "./pages/Update/Update";
-import Home from "./pages/Home/Home";
-import Roadmap from "./pages/Roadmap/Roadmap";
-import PracticeExam from "./pages/PracticeExam/PracticeExam";
-import RealExam from "./pages/RealExam/RealExam";
-import MainLayout from "./layouts/MainLayout";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import AdminPage from './pages/admin/admin'
+import Login from './pages/admin/Login/login'
+import Dashboard from './pages/admin/screens/dashboard/dashboard'
+import User from './pages/admin/screens/user/user'
+import Test from './pages/admin/screens/test/test'
+import Lesson from './pages/admin/screens/lesson/lesson'
+import ButtonDemo from './pages/ButtonDemo'
+import VocabularyPage from './components/Vocabulary/VocabularyPage'
+import PriceModal from './components/Price/PriceModal'
+import Exam from './components/Exam/Exam'
+import ExamType from './components/ExamType/ExamType'
+import Result from './components/Result/Result'
+import Culture from './pages/Culture/Culture'
+import Update from './pages/Update/Update'
+import Home from './pages/Home/Home'
+import Roadmap from './pages/Roadmap/Roadmap'
+import PracticeExam from './pages/PracticeExam/PracticeExam'
+import RealExam from './pages/RealExam/RealExam'
+import MainLayout from './layouts/MainLayout'
 
 // Import learner components
-import NotFoundPage from "./pages/NotFoundPage";
-import LearnerMainLayout from "./layouts/learner/MainLayout";
-import LearnerHomePage from "./pages/learner/LearnerHomePage";
-import LearnerNews from "./pages/learner/LearnerNews";
-import LearnerNewsDetails from "./pages/learner/LearnerNewsDetails";
-import LearnerVideo from "./pages/learner/LearnerVideo";
-import LearnerVideoDetails from "./pages/learner/LearnerVideoDetails";
-import UserProfile from "./pages/UserProfile/UserProfile";
+import NotFoundPage from './pages/NotFoundPage'
+import LearnerMainLayout from './layouts/learner/MainLayout'
+import LearnerHomePage from './pages/learner/LearnerHomePage'
+import LearnerNews from './pages/learner/LearnerNews'
+import LearnerNewsDetails from './pages/learner/LearnerNewsDetails'
+import LearnerVideo from './pages/learner/LearnerVideo'
+import LearnerVideoDetails from './pages/learner/LearnerVideoDetails'
+import UserProfile from './pages/UserProfile/UserProfile'
+import LoginPage from './pages/Login/login'
+import SignUpForm from './pages/SignUp/signup'
 
 const router = createBrowserRouter([
   {
-    path: "/dashboard/login",
+    path: '/dashboard/login',
     element: <Login />,
   },
   {
-    path: "/dashboard",
-    
+    path: '/dashboard',
+
     element: <AdminPage />,
     children: [
       {
@@ -44,119 +46,129 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "user",
+        path: 'user',
         element: <User />,
       },
       {
-        path: "test",
+        path: 'test',
         element: <Test />,
       },
       {
-        path: "lesson",
+        path: 'lesson',
         element: <Lesson />,
       },
       {
-        path: "culture",
+        path: 'culture',
         element: <h1>Culture Page</h1>,
       },
       {
-        path: "news",
+        path: 'news',
         element: <h1>News Page</h1>,
       },
       {
-        path: "finance",
+        path: 'finance',
         element: <h1>Finance Page</h1>,
       },
       {
-        path: "profile",
+        path: 'profile',
         element: <h1>Profile Page</h1>,
       },
       {
-        path: "logout",
+        path: 'logout',
         element: <h1>Logout Page</h1>,
       },
     ],
   },
   {
-    path: "/",
+    path: '/login',
+    element: <LoginPage />,
+  },
+  {
+    path: "/signUp",
+    element: <SignUpForm />
+  },
+  {
+    path: '/',
     element: <MainLayout />,
     children: [
       {
-        path: "/",
+        path: '/',
         element: <Home />,
         index: true,
       },
       {
-        path: "/home",
+        path: '/home',
         element: <Home />,
         index: true,
       },
       {
-        path: "/roadmap",
-        element: <Roadmap />
+        path: '/roadmap',
+        element: <Roadmap />,
       },
       {
-        path: "/culture",
+        path: '/culture',
         element: <Culture />,
       },
       {
-        path: "/update",
+        path: '/update',
         element: <Update />,
       },
       {
-        path: "/practiceExam",
+        path: '/practiceExam',
         element: <PracticeExam />,
       },
       {
-        path: "/examType",
+        path: '/examType',
         element: <ExamType />,
       },
-      
+
       {
-        path: "/realExam",
+        path: '/realExam',
         element: <RealExam />,
       },
       {
-        path: "exam/:examType/:examId",
+        path: 'exam/:examType/:examId',
         element: <Exam />,
       },
       {
-        path: "/result",
+        path: '/result',
         element: <Result />,
       },
       {
-    path: "/profile",
-    element: <UserProfile/>,
-  },
-  {
-    path: '/learner',
-    children: [
+        path: '/profile',
+        element: <UserProfile />,
+      },
       {
-        path: '',
-        element: <LearnerMainLayout/>,
+        path: '/learner',
         children: [
-          { index: true, element: <LearnerHomePage/> },
-          { path: 'news', element: <LearnerNews/> },
-          { path: 'news/:id', element: <LearnerNewsDetails/> },
-          { path: 'video', element: <LearnerVideo/> },
-          { path: 'video/learn/:videoId', element: <LearnerVideoDetails/> },
+          {
+            path: '',
+            element: <LearnerMainLayout />,
+            children: [
+              { index: true, element: <LearnerHomePage /> },
+              { path: 'news', element: <LearnerNews /> },
+              { path: 'news/:id', element: <LearnerNewsDetails /> },
+              { path: 'video', element: <LearnerVideo /> },
+              {
+                path: 'video/learn/:videoId',
+                element: <LearnerVideoDetails />,
+              },
+            ],
+          },
         ],
       },
     ],
   },
-    ],
-  },
-
 
   // 404 route
   {
-    path: "*",
-    element: <NotFoundPage/>
-  }
-]);
+    path: '*',
+    element: <NotFoundPage />,
+  },
+])
 
 function RouterCustome() {
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={router} />
 }
 
-export default RouterCustome;
+export default RouterCustome

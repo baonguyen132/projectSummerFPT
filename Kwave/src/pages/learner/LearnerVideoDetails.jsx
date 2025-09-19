@@ -33,7 +33,7 @@ const LearnerVideoDetails = () => {
     { id: 'cai-dat', label: 'Cài đặt' },
   ];
 
-    // Mock transcript
+    // Mock transcriptx
     const transcript = '뭐 하는 거야? 끝났어- 끝났어- 영이 나빠 무례하다! 죄송합니다! 왜, 왜, 괜찮은데?';
 
     // Từ vựng xuất hiện trong transcript

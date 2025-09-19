@@ -138,7 +138,10 @@ const router = createBrowserRouter([
         path: '/profile',
         element: <UserProfile />,
       },
-      {
+      
+    ],
+  },
+  {
         path: '/learner',
         children: [
           {
@@ -157,8 +160,6 @@ const router = createBrowserRouter([
           },
         ],
       },
-    ],
-  },
 
   // 404 route
   {

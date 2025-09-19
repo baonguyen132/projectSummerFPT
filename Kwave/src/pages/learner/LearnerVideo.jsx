@@ -9,12 +9,17 @@ const LearnerVideo = () => {
   
   // Mock data - thay thế bằng dữ liệu thực tế sau
   const allVideos = [
-    { id: 1, title: '뭐 하는 거야?', subtitle: 'mwo haneun geoya', thumbnail: 'https://youcan.edu.vn/wp-content/uploads/2023/09/loi-ich-khi-hoc-tieng-han-qua-podcast-768x432.jpg', duration: '12:34', views: 123, date: new Date(2025, 8, 15), popularity: 85 },
-    { id: 2, title: '끝났어- 끝났어-', subtitle: 'kkeutnadeo- kkeutnadeo-', thumbnail: 'https://youcan.edu.vn/wp-content/uploads/2023/09/loi-ich-khi-hoc-tieng-han-qua-podcast-768x432.jpg', duration: '15:20', views: 245, date: new Date(2025, 8, 14), popularity: 92 },
-    { id: 3, title: '영이 나빠', subtitle: 'yeongi nappa', thumbnail: 'https://youcan.edu.vn/wp-content/uploads/2023/09/loi-ich-khi-hoc-tieng-han-qua-podcast-768x432.jpg', duration: '08:45', views: 189, date: new Date(2025, 8, 16), popularity: 78 },
-    { id: 4, title: '무례하다!', subtitle: 'muryehada', thumbnail: 'https://youcan.edu.vn/wp-content/uploads/2023/09/loi-ich-khi-hoc-tieng-han-qua-podcast-768x432.jpg', duration: '10:15', views: 432, date: new Date(2025, 8, 13), popularity: 95 },
-    { id: 5, title: '죄송합니다!', subtitle: 'joesonghapnita', thumbnail: 'https://youcan.edu.vn/wp-content/uploads/2023/09/loi-ich-khi-hoc-tieng-han-qua-podcast-768x432.jpg', duration: '11:30', views: 321, date: new Date(2025, 8, 12), popularity: 88 },
-    { id: 6, title: '왜, 왜, 괜찮은데?', subtitle: 'wae, wae, gwaenchaneunde?', thumbnail: 'https://youcan.edu.vn/wp-content/uploads/2023/09/loi-ich-khi-hoc-tieng-han-qua-podcast-768x432.jpg', duration: '09:50', views: 567, date: new Date(2025, 8, 11), popularity: 91 }
+    { id: 1, title: '[명강의 모음] 건강하고 행복한 나로', subtitle: 'mwo haneun geoya', thumbnail: 'https://youcan.edu.vn/wp-content/uploads/2023/09/loi-ich-khi-hoc-tieng-han-qua-podcast-768x432.jpg', duration: '12:34', views: 123, date: new Date(2025, 8, 15), popularity: 85 },
+    { id: 2, title: '[명강의 모음] 건강하고 행복한 나로', subtitle: 'kkeutnadeo- kkeutnadeo-', thumbnail: 'https://youcan.edu.vn/wp-content/uploads/2023/09/loi-ich-khi-hoc-tieng-han-qua-podcast-768x432.jpg', duration: '15:20', views: 245, date: new Date(2025, 8, 14), popularity: 92 },
+    { id: 3, title: '[명강의 모음] 영이 나빠', subtitle: 'yeongi nappa', thumbnail: 'https://youcan.edu.vn/wp-content/uploads/2023/09/loi-ich-khi-hoc-tieng-han-qua-podcast-768x432.jpg', duration: '08:45', views: 189, date: new Date(2025, 8, 16), popularity: 78 },
+    { id: 4, title: '[명강의 모음] 무례하다!', subtitle: 'muryehada', thumbnail: 'https://youcan.edu.vn/wp-content/uploads/2023/09/loi-ich-khi-hoc-tieng-han-qua-podcast-768x432.jpg', duration: '10:15', views: 432, date: new Date(2025, 8, 13), popularity: 95 },
+    { id: 5, title: '[명강의 모음] 죄송합니다!', subtitle: 'joesonghapnita', thumbnail: 'https://youcan.edu.vn/wp-content/uploads/2023/09/loi-ich-khi-hoc-tieng-han-qua-podcast-768x432.jpg', duration: '11:30', views: 321, date: new Date(2025, 8, 12), popularity: 88 },
+    { id: 6, title: '[명강의 모음] 죄송합니다!', subtitle: 'joesonghapnita', thumbnail: 'https://youcan.edu.vn/wp-content/uploads/2023/09/loi-ich-khi-hoc-tieng-han-qua-podcast-768x432.jpg', duration: '11:30', views: 321, date: new Date(2025, 8, 12), popularity: 88 },
+    { id: 7, title: '[명강의 모음] 죄송합니다!', subtitle: 'joesonghapnita', thumbnail: 'https://youcan.edu.vn/wp-content/uploads/2023/09/loi-ich-khi-hoc-tieng-han-qua-podcast-768x432.jpg', duration: '11:30', views: 321, date: new Date(2025, 8, 12), popularity: 88 },
+    { id: 8, title: '[명강의 모음] 죄송합니다!', subtitle: 'joesonghapnita', thumbnail: 'https://youcan.edu.vn/wp-content/uploads/2023/09/loi-ich-khi-hoc-tieng-han-qua-podcast-768x432.jpg', duration: '11:30', views: 321, date: new Date(2025, 8, 12), popularity: 88 },
+    { id: 9, title: '[명강의 모음] 죄송합니다!', subtitle: 'joesonghapnita', thumbnail: 'https://youcan.edu.vn/wp-content/uploads/2023/09/loi-ich-khi-hoc-tieng-han-qua-podcast-768x432.jpg', duration: '11:30', views: 321, date: new Date(2025, 8, 12), popularity: 88 },
+    { id: 10, title: '[명강의 모음] 죄송합니다!', subtitle: 'joesonghapnita', thumbnail: 'https://youcan.edu.vn/wp-content/uploads/2023/09/loi-ich-khi-hoc-tieng-han-qua-podcast-768x432.jpg', duration: '11:30', views: 321, date: new Date(2025, 8, 12), popularity: 88 },
+    { id: 11, title: '[명강의 모음] 왜, 왜, 괜찮은데?', subtitle: 'wae, wae, gwaenchaneunde?', thumbnail: 'https://youcan.edu.vn/wp-content/uploads/2023/09/loi-ich-khi-hoc-tieng-han-qua-podcast-768x432.jpg', duration: '09:50', views: 567, date: new Date(2025, 8, 11), popularity: 91 }
   ]
 
   // Lọc và sắp xếp videos
@@ -33,20 +38,25 @@ const LearnerVideo = () => {
   
   return (
     <div className="container mx-auto px-4">
-      {/* Filter section */}
-      <div className="bg-green-50 p-4 rounded-lg mt-6">
-        <div className="flex items-center justify-between">
+      {/* Filter section with backdrop */}
+      <div className="sticky top-0 z-40 mt-6 mb-2">
+        {/* Backdrop to cover the gap */}
+        <div className="absolute top-0 left-0 right-0 h-4 bg-white"></div>
+        
+        {/* Filter bar */}
+        <div className="relative top-4 bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-lg shadow-lg border border-green-100">
+          <div className="flex items-center justify-between flex-wrap gap-3">
           <div className="flex items-center gap-4">
             {/* Back button */}
             <button 
               onClick={() => navigate(-1)}
-              className="flex items-center gap-2 text-green-500 hover:text-green-600 transition-colors"
+              className="flex items-center gap-3 text-green-600 hover:text-green-700 transition-all duration-300 bg-white px-4 py-2.5 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105"
             >
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 fill="none" 
                 viewBox="0 0 24 24" 
-                strokeWidth={1.5} 
+                strokeWidth={2} 
                 stroke="currentColor" 
                 className="w-5 h-5"
               >
@@ -56,42 +66,48 @@ const LearnerVideo = () => {
                   d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" 
                 />
               </svg>
-              <span>Quay lại</span>
+              <span className="font-medium">Quay lại</span>
             </button>
 
             {/* Category filter */}
-            <select className="px-4 py-2 rounded-lg border border-green-500">
-              <option>Tất cả thể loại</option>
-              <option>Học tập</option>
-              <option>Giải trí</option>
-              <option>Tin tức</option>
-            </select>
-            
-
+            <div className="relative">
+              <select className="appearance-none bg-white px-4 py-2.5 pr-10 rounded-lg border border-green-200 focus:border-green-400 focus:ring-2 focus:ring-green-100 transition-all duration-300 shadow-md hover:shadow-lg font-medium text-green-600 cursor-pointer transform hover:scale-105">
+                <option>🎬 Tất cả thể loại</option>
+                <option>📚 Học tập</option>
+                <option>🎯 Giải trí</option>
+                <option>📰 Tin tức</option>
+              </select>
+              <div className="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none">
+                <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
           </div>
           
           {/* Sort options */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 bg-white p-1.5 rounded-xl shadow-md">
             <button 
               onClick={() => setSortBy('newest')}
-              className={`px-4 py-2 rounded-lg border border-green-500 transition-colors ${
+              className={`px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
                 sortBy === 'newest' 
-                  ? 'bg-green-500 text-white' 
-                  : 'bg-white text-green-500 hover:bg-green-50'
+                  ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-lg' 
+                  : 'text-green-600 hover:bg-green-50'
               }`}
             >
-              Video
+              🎥 Video
             </button>
             <button 
               onClick={() => setSortBy('popular')}
-              className={`px-4 py-2 rounded-lg border border-green-500 transition-colors ${
+              className={`px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
                 sortBy === 'popular' 
-                  ? 'bg-green-500 text-white' 
-                  : 'bg-white text-green-500 hover:bg-green-50'
+                  ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-lg' 
+                  : 'text-green-600 hover:bg-green-50'
               }`}
             >
-              Podcast
+              🎙️ Podcast
             </button>
+          </div>
           </div>
         </div>
       </div>

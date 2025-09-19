@@ -134,6 +134,9 @@ const PremiumProfile = ({ user, activeTab, setActiveTab }) => {
 
 // Components cho các tab
 const ProgressSection = ({ user }) => {
+  const dayLabels = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
+  const dayNames = ['Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'Chủ nhật'];
+  
   return (
     <div className="progress-section">
       <div className="progress-card">
@@ -141,19 +144,19 @@ const ProgressSection = ({ user }) => {
         <div className="weekly-progress">
           <div className="progress-chart">
             {user.progress.daily.map((day, index) => (
-              <div key={index} className="progress-bar">
+              <div key={index} className="progress-bar" title={`${dayNames[index]}: ${day ? 'Đã hoàn thành' : 'Chưa hoàn thành'}`}>
                 <div 
                   className={`bar ${day ? 'completed' : 'incomplete'}`}
                   style={{ height: day ? '100%' : '20%' }}
                 ></div>
-                <span className="day-label">T{index + 2}</span>
+                <span className="day-label">{dayLabels[index]}</span>
               </div>
             ))}
           </div>
           <div className="progress-info">
-            <p>Hôm nay, 01/01</p>
-            <p>0 exp</p>
-            <p>Tỷ lệ đúng: 0%</p>
+            <p>Tuần này</p>
+            <p>{user.progress.daily.filter(day => day).length}/7 ngày hoàn thành</p>
+            <p>Tỷ lệ hoàn thành: {Math.round((user.progress.daily.filter(day => day).length / 7) * 100)}%</p>
           </div>
         </div>
       </div>
@@ -218,6 +221,9 @@ const UpgradeSection = () => {
 };
 
 const PremiumProgressSection = ({ user }) => {
+  const dayLabels = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
+  const dayNames = ['Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'Chủ nhật'];
+  
   return (
     <div className="premium-progress-section">
       <div className="progress-overview">
@@ -225,12 +231,12 @@ const PremiumProgressSection = ({ user }) => {
           <h3>Tiến độ luyện tập hàng tuần</h3>
           <div className="weekly-chart">
             {user.progress.daily.map((day, index) => (
-              <div key={index} className="chart-bar">
+              <div key={index} className="chart-bar" title={`${dayNames[index]}: ${day ? 'Đã hoàn thành' : 'Chưa hoàn thành'}`}>
                 <div 
                   className={`bar-premium ${day ? 'active' : 'inactive'}`}
                   style={{ height: day ? '80px' : '20px' }}
                 ></div>
-                <span>T{index + 2}</span>
+                <span>{dayLabels[index]}</span>
               </div>
             ))}
           </div>
@@ -265,12 +271,12 @@ const PremiumProgressSection = ({ user }) => {
         <h3>Thống kê điểm thi</h3>
         <div className="exam-chart">
           {user.progress.daily.map((day, index) => (
-            <div key={index} className="exam-bar">
+            <div key={index} className="exam-bar" title={`${dayNames[index]}: ${day ? 'Điểm cao' : 'Chưa thi'}`}>
               <div 
                 className={`exam-fill ${day ? 'high-score' : 'low-score'}`}
                 style={{ height: day ? '60px' : '20px' }}
               ></div>
-              <span>T{index + 2}</span>
+              <span>{dayLabels[index]}</span>
             </div>
           ))}
         </div>

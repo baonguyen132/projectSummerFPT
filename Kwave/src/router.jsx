@@ -147,11 +147,6 @@ const router = createBrowserRouter([
     ],
   },
 
-  
-    
-
-  // Learner routes
-  
 
   // 404 route
   {
